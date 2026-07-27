@@ -1,0 +1,1611 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#15100c">
+    <title>Римафон — сезон 2</title>
+    <meta name="description" content="Новый сезон Римафона: предлагай идеи для RimWorld, попадай в рулетку и решай, какой будет следующая колония Krekeros.">
+    <meta property="og:title" content="Римафон — сезон 2">
+    <meta property="og:description" content="Предлагайте идеи для RimWorld — выбранные варианты станут новыми колониями на стримах Krekeros.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="rimafon-season2-hero.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #15100c;
+        --ink-soft: #211812;
+        --paper: #f4dfb3;
+        --paper-2: #e9c98d;
+        --cream: #fff3d6;
+        --orange: #f46f24;
+        --amber: #ffb629;
+        --teal: #2d9b8f;
+        --lime: #c8ed5b;
+        --white: #fffaf0;
+        --muted: #bdad97;
+        --line: rgba(255, 243, 214, 0.14);
+        --line-strong: rgba(255, 243, 214, 0.24);
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+        --radius: 26px;
+        --radius-sm: 16px;
+        --display: "Rubik", "Segoe UI", sans-serif;
+        --body: "Rubik", "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        overflow-x: hidden;
+        background:
+          radial-gradient(circle at 16% 7%, rgba(244, 111, 36, 0.16), transparent 30rem),
+          radial-gradient(circle at 84% 30%, rgba(45, 155, 143, 0.10), transparent 28rem),
+          var(--ink);
+        color: var(--white);
+        font-family: var(--body);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0.35;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.016) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.016) 1px, transparent 1px);
+        background-size: 44px 44px;
+        mask-image: linear-gradient(to bottom, black, transparent 88%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      .container {
+        width: min(1180px, calc(100% - 40px));
+        margin-inline: auto;
+      }
+
+      @keyframes tickerLoop {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        border-bottom: 1px solid var(--line);
+        background: rgba(21, 16, 12, 0.82);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+      }
+
+      .nav-shell {
+        display: flex;
+        min-height: 76px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 11px;
+        font: 800 14px/1 var(--display);
+        letter-spacing: -0.03em;
+      }
+
+      .brand__mark {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        transform: rotate(-4deg);
+        border: 2px solid var(--cream);
+        border-radius: 12px;
+        background: var(--orange);
+        color: var(--ink);
+        box-shadow: 4px 4px 0 var(--cream);
+        font-size: 12px;
+      }
+
+      .main-nav {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+      }
+
+      .main-nav a {
+        padding: 10px 12px;
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+        transition: color 180ms ease, background 180ms ease;
+      }
+
+      .main-nav a:is(:hover, .active) {
+        background: rgba(255, 255, 255, 0.07);
+        color: var(--white);
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        padding: 0 19px;
+        border: 1px solid transparent;
+        border-radius: 14px;
+        background: var(--orange);
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 800;
+        box-shadow: 0 9px 28px rgba(244, 111, 36, 0.2);
+        transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        background: #ff823b;
+        box-shadow: 0 14px 34px rgba(244, 111, 36, 0.28);
+      }
+
+      .button--ghost {
+        border-color: var(--line-strong);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--white);
+        box-shadow: none;
+      }
+
+      .button--ghost:hover {
+        background: rgba(255, 255, 255, 0.09);
+        box-shadow: none;
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--lime);
+        outline-offset: 4px;
+      }
+
+      .hero {
+        position: relative;
+        padding: 78px 0 88px;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "02";
+        position: absolute;
+        right: -0.04em;
+        bottom: -0.24em;
+        z-index: -1;
+        color: rgba(255, 243, 214, 0.025);
+        font: 800 clamp(260px, 42vw, 640px)/0.8 var(--display);
+        pointer-events: none;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(350px, 0.72fr);
+        align-items: center;
+        gap: clamp(46px, 7vw, 94px);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 22px;
+        color: var(--lime);
+        font: 800 11px/1 var(--display);
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: currentColor;
+        box-shadow: 0 0 0 6px rgba(200, 237, 91, 0.12);
+        animation: ping 1.8s ease-in-out infinite;
+      }
+
+      @keyframes ping {
+        50% {
+          box-shadow: 0 0 0 10px rgba(200, 237, 91, 0);
+        }
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 780px;
+        margin-bottom: 24px;
+        font: 800 clamp(45px, 6.5vw, 88px)/0.98 var(--display);
+        letter-spacing: -0.045em;
+        text-wrap: balance;
+      }
+
+      .accent-stroke {
+        position: relative;
+        display: inline-block;
+        color: var(--amber);
+      }
+
+      .accent-stroke::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -0.05em;
+        left: 0.08em;
+        height: 0.11em;
+        transform: rotate(-1.5deg);
+        border-radius: 999px;
+        background: var(--orange);
+      }
+
+      .hero-copy {
+        max-width: 680px;
+        margin-bottom: 30px;
+        color: #d2c5b4;
+        font-size: clamp(17px, 2vw, 20px);
+        line-height: 1.65;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .season-stats {
+        display: grid;
+        max-width: 680px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 42px;
+      }
+
+      .stat {
+        min-width: 0;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .stat strong {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--cream);
+        font: 700 22px/1 var(--display);
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .hero-art {
+        position: relative;
+        width: min(100%, 450px);
+        justify-self: end;
+      }
+
+      .hero-art::before,
+      .hero-art::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        border: 1px solid var(--line);
+        border-radius: 36px;
+      }
+
+      .hero-art::before {
+        inset: 8% -9% -6% 13%;
+        transform: rotate(5deg);
+        background: rgba(45, 155, 143, 0.12);
+      }
+
+      .hero-art::after {
+        inset: -5% 10% 8% -8%;
+        transform: rotate(-5deg);
+        background: rgba(244, 111, 36, 0.09);
+      }
+
+      .poster-frame {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 2 / 2.55;
+        transform: rotate(1.5deg);
+        border: 9px solid var(--paper);
+        border-radius: 26px;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+      }
+
+      .poster-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: saturate(0.96) contrast(1.03);
+      }
+
+      .poster-stamp {
+        position: absolute;
+        right: -18px;
+        bottom: 40px;
+        display: grid;
+        width: 104px;
+        height: 104px;
+        place-items: center;
+        transform: rotate(10deg);
+        border: 3px solid var(--ink);
+        border-radius: 50%;
+        background: var(--lime);
+        color: var(--ink);
+        text-align: center;
+        font: 800 13px/1.15 var(--display);
+        box-shadow: 7px 8px 0 var(--ink);
+      }
+
+      .ticker {
+        overflow: hidden;
+        transform: rotate(-1deg);
+        border-block: 2px solid var(--paper);
+        background: var(--orange);
+        color: var(--ink);
+        font: 800 clamp(16px, 2vw, 24px)/1 var(--display);
+        text-transform: uppercase;
+      }
+
+      .ticker__track {
+        display: flex;
+        width: max-content;
+        will-change: transform;
+        animation: tickerLoop 24s linear infinite;
+      }
+
+      .ticker__segment {
+        display: flex;
+        flex: 0 0 auto;
+        min-width: 100vw;
+        align-items: center;
+        justify-content: space-around;
+        gap: clamp(28px, 4vw, 74px);
+        padding: 18px clamp(24px, 4vw, 68px);
+      }
+
+      .ticker__segment span {
+        white-space: nowrap;
+      }
+
+      .ticker__segment i {
+        color: var(--paper);
+        font-style: normal;
+      }
+
+      .section {
+        padding: 104px 0;
+      }
+
+      .section--soft {
+        border-block: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.025);
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 430px);
+        align-items: end;
+        gap: 36px;
+        margin-bottom: 46px;
+      }
+
+      .section-kicker {
+        display: block;
+        margin-bottom: 14px;
+        color: var(--orange);
+        font: 800 11px/1 var(--display);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin-bottom: 0;
+        font: 800 clamp(34px, 5vw, 58px)/1.04 var(--display);
+        letter-spacing: -0.035em;
+        text-wrap: balance;
+      }
+
+      .section-head p {
+        margin-bottom: 2px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .step-card {
+        position: relative;
+        min-height: 270px;
+        overflow: hidden;
+        padding: 26px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--ink-soft);
+        transition: transform 180ms ease, border-color 180ms ease;
+      }
+
+      .step-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--line-strong);
+      }
+
+      .step-card:nth-child(2) {
+        background: #18302d;
+      }
+
+      .step-card:nth-child(3) {
+        background: #4a2414;
+      }
+
+      .step-no {
+        display: grid;
+        width: 48px;
+        height: 48px;
+        margin-bottom: 54px;
+        place-items: center;
+        border-radius: 14px;
+        background: var(--paper);
+        color: var(--ink);
+        font: 800 13px/1 var(--display);
+      }
+
+      .step-card h3 {
+        margin-bottom: 12px;
+        font: 700 19px/1.25 var(--display);
+        letter-spacing: -0.025em;
+      }
+
+      .step-card p {
+        margin-bottom: 0;
+        color: #c9baa6;
+        line-height: 1.65;
+      }
+
+      .step-card__glyph {
+        position: absolute;
+        top: 14px;
+        right: 18px;
+        opacity: 0.08;
+        font: 800 100px/1 var(--display);
+      }
+
+      .season-board {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(310px, 0.75fr);
+        gap: 16px;
+      }
+
+      .board-card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #100d0a;
+        box-shadow: var(--shadow);
+      }
+
+      .board-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 17px 20px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .board-label {
+        color: var(--muted);
+        font: 800 10px/1 var(--display);
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .live-state {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--lime);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .live-state::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: currentColor;
+        box-shadow: 0 0 12px currentColor;
+      }
+
+      .empty-colony {
+        display: grid;
+        min-height: 380px;
+        place-items: center;
+        padding: 46px;
+        text-align: center;
+      }
+
+      .empty-colony__icon {
+        display: grid;
+        width: 84px;
+        height: 84px;
+        margin: 0 auto 24px;
+        place-items: center;
+        transform: rotate(-4deg);
+        border: 2px solid var(--paper);
+        border-radius: 24px;
+        background: var(--amber);
+        color: var(--ink);
+        font: 800 28px/1 var(--display);
+        box-shadow: 8px 8px 0 rgba(244, 111, 36, 0.8);
+      }
+
+      .empty-colony h3 {
+        margin-bottom: 12px;
+        font: 700 25px/1.25 var(--display);
+        letter-spacing: -0.02em;
+      }
+
+      .empty-colony p {
+        max-width: 480px;
+        margin: 0 auto 26px;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .queue {
+        display: grid;
+        gap: 16px;
+      }
+
+      .queue-card {
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .queue-card__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 20px;
+      }
+
+      .queue-card h3 {
+        margin: 0;
+        font: 700 15px/1.3 var(--display);
+      }
+
+      .count {
+        display: grid;
+        min-width: 38px;
+        height: 30px;
+        padding: 0 10px;
+        place-items: center;
+        border-radius: 999px;
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .queue-empty {
+        display: flex;
+        min-height: 112px;
+        align-items: center;
+        justify-content: center;
+        border: 1px dashed var(--line-strong);
+        border-radius: var(--radius-sm);
+        color: var(--muted);
+        text-align: center;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .ideas-list {
+        display: grid;
+        max-height: 310px;
+        gap: 8px;
+        overflow-y: auto;
+      }
+
+      .current-idea {
+        display: grid;
+        min-height: 380px;
+        grid-template-columns: minmax(230px, 0.78fr) minmax(0, 1fr);
+        align-items: stretch;
+      }
+
+      .current-idea__image {
+        width: 100%;
+        height: 100%;
+        min-height: 380px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .current-idea__body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: clamp(28px, 5vw, 48px);
+      }
+
+      .current-idea__body h3 {
+        margin-bottom: 14px;
+        font: 700 clamp(23px, 3vw, 34px)/1.2 var(--display);
+        letter-spacing: -0.025em;
+      }
+
+      .current-idea__body p {
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .idea-row {
+        display: grid;
+        grid-template-columns: 68px minmax(0, 1fr);
+        align-items: start;
+        gap: 12px;
+        padding: 13px 14px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .idea-row--no-image {
+        grid-template-columns: 1fr;
+      }
+
+      .idea-row__image {
+        width: 68px;
+        height: 68px;
+        border-radius: 10px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .idea-row__body {
+        min-width: 0;
+      }
+
+      .idea-row strong {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 13px;
+      }
+
+      .idea-row p {
+        display: -webkit-box;
+        margin: 0 0 8px;
+        overflow: hidden;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.45;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+
+      .idea-row span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .idea-amount {
+        display: inline-flex;
+        margin-top: 8px;
+        padding: 5px 9px;
+        border-radius: 999px;
+        background: rgba(200, 237, 91, 0.11);
+        color: var(--lime) !important;
+        font-weight: 800;
+      }
+
+      .archive-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .archive-grid .idea-row {
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+      }
+
+      .rules-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .rule-panel {
+        padding: clamp(28px, 4vw, 44px);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--ink-soft);
+      }
+
+      .rule-panel--paper {
+        transform: rotate(-0.7deg);
+        border-color: transparent;
+        background: var(--paper);
+        color: var(--ink);
+        box-shadow: 10px 12px 0 var(--orange);
+      }
+
+      .rule-panel h3 {
+        margin-bottom: 28px;
+        font: 700 clamp(23px, 3vw, 32px)/1.15 var(--display);
+        letter-spacing: -0.025em;
+      }
+
+      .rule-list {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .rule-list li {
+        display: grid;
+        grid-template-columns: 30px 1fr;
+        gap: 12px;
+        padding: 15px 0;
+        border-top: 1px solid currentColor;
+        border-color: rgba(255, 255, 255, 0.12);
+        color: #d5c6b2;
+        line-height: 1.55;
+      }
+
+      .rule-panel--paper .rule-list li {
+        border-color: rgba(21, 16, 12, 0.18);
+        color: #35271c;
+      }
+
+      .rule-list b {
+        font: 800 12px/1.5 var(--display);
+      }
+
+      .fine-print {
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .rule-panel--paper .fine-print {
+        color: #725c45;
+      }
+
+      .inline-link {
+        color: var(--amber);
+        font-weight: 800;
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 182, 41, 0.5);
+        text-underline-offset: 3px;
+      }
+
+      .inline-link:hover {
+        text-decoration-color: currentColor;
+      }
+
+      .special-lot {
+        display: grid;
+        grid-template-columns: minmax(0, 0.38fr) minmax(0, 1fr);
+        align-items: start;
+        gap: clamp(24px, 5vw, 64px);
+        margin-top: 18px;
+        padding: clamp(28px, 4vw, 44px);
+        border: 1px solid rgba(45, 155, 143, 0.52);
+        border-radius: var(--radius);
+        background:
+          radial-gradient(circle at 90% 10%, rgba(200, 237, 91, 0.12), transparent 22rem),
+          #18302d;
+      }
+
+      .special-lot h3 {
+        margin-bottom: 14px;
+        font: 700 clamp(23px, 3vw, 32px)/1.15 var(--display);
+        letter-spacing: -0.025em;
+      }
+
+      .special-lot p {
+        margin-bottom: 0;
+        color: #c9d8d1;
+        line-height: 1.7;
+      }
+
+      .special-lot__badge {
+        display: inline-flex;
+        margin-bottom: 18px;
+        padding: 8px 11px;
+        border-radius: 999px;
+        background: var(--lime);
+        color: var(--ink);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .special-lot .rule-list li {
+        color: #d9e6e1;
+      }
+
+      .special-lot .fine-print {
+        color: #91aaa1;
+      }
+
+      .boosty-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+        overflow: hidden;
+        border: 2px solid var(--ink);
+        border-radius: calc(var(--radius) + 6px);
+        background: var(--paper);
+        color: var(--ink);
+        box-shadow: var(--shadow);
+      }
+
+      .boosty-copy {
+        padding: clamp(32px, 5vw, 58px);
+      }
+
+      .boosty-copy h2 {
+        margin-bottom: 18px;
+        color: var(--ink);
+      }
+
+      .boosty-copy p {
+        max-width: 680px;
+        margin-bottom: 28px;
+        color: #5d4937;
+        font-size: 17px;
+        line-height: 1.7;
+      }
+
+      .boosty-copy .section-kicker {
+        color: #9b3f12;
+      }
+
+      .boosty-copy .button {
+        background: var(--ink);
+        color: var(--cream);
+        box-shadow: none;
+      }
+
+      .boosty-copy .button:hover {
+        background: #332319;
+      }
+
+      .boosty-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0;
+        margin: 0;
+        padding: clamp(32px, 5vw, 54px);
+        border-left: 2px solid rgba(21, 16, 12, 0.16);
+        background: var(--lime);
+        list-style: none;
+      }
+
+      .boosty-list li {
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        gap: 10px;
+        padding: 15px 0;
+        border-top: 1px solid rgba(21, 16, 12, 0.22);
+        color: #2d251d;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+
+      .boosty-list li::before {
+        content: "✓";
+        font-weight: 900;
+      }
+
+      .links-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .social-link {
+        display: flex;
+        min-height: 136px;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 19px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.035);
+        transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+      }
+
+      .social-link:hover {
+        transform: translateY(-4px);
+        border-color: var(--line-strong);
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .social-link span {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .social-link strong {
+        font: 700 16px/1.2 var(--display);
+        letter-spacing: -0.02em;
+      }
+
+      .social-link i {
+        align-self: flex-end;
+        color: var(--orange);
+        font-style: normal;
+        font-size: 20px;
+      }
+
+      .footer {
+        padding: 30px 0 110px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .footer .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .footer a:hover {
+        color: var(--white);
+      }
+
+      .mobile-cta {
+        position: fixed;
+        right: 14px;
+        bottom: 14px;
+        left: 14px;
+        z-index: 40;
+        display: none;
+        min-height: 54px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        background: var(--orange);
+        color: var(--ink);
+        font-weight: 800;
+        box-shadow: 0 14px 42px rgba(0, 0, 0, 0.38);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 600ms ease, transform 600ms ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      @media (max-width: 980px) {
+        .main-nav {
+          display: none;
+        }
+
+        .hero {
+          padding-top: 62px;
+        }
+
+        .hero-grid,
+        .season-board,
+        .boosty-card {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-art {
+          width: min(84vw, 500px);
+          justify-self: center;
+        }
+
+        .current-idea {
+          grid-template-columns: 1fr;
+        }
+
+        .current-idea__image {
+          min-height: 0;
+          aspect-ratio: 16 / 9;
+        }
+
+        .archive-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy {
+          max-width: 760px;
+        }
+
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        .step-card {
+          min-height: 220px;
+        }
+
+        .step-no {
+          margin-bottom: 36px;
+        }
+
+        .rules-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .special-lot {
+          grid-template-columns: 1fr;
+        }
+
+        .links-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .boosty-list {
+          border-top: 2px solid rgba(21, 16, 12, 0.16);
+          border-left: 0;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .container {
+          width: min(100% - 28px, 1180px);
+        }
+
+        .nav-shell {
+          min-height: 68px;
+        }
+
+        .site-header .button {
+          display: none;
+        }
+
+        .hero {
+          padding: 48px 0 66px;
+        }
+
+        h1 {
+          letter-spacing: -0.04em;
+        }
+
+        .season-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .stat {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 14px;
+        }
+
+        .stat strong {
+          margin: 0;
+        }
+
+        .hero-art {
+          width: min(90vw, 430px);
+        }
+
+        .poster-stamp {
+          right: -4px;
+          width: 86px;
+          height: 86px;
+          font-size: 11px;
+        }
+
+        .section {
+          padding: 76px 0;
+        }
+
+        .section-head {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          margin-bottom: 32px;
+        }
+
+        .empty-colony {
+          min-height: 350px;
+          padding: 34px 22px;
+        }
+
+        .links-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .mobile-cta {
+          display: flex;
+        }
+
+        .footer .container {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 430px) {
+        .links-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .social-link {
+          min-height: 112px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a class="brand" href="#top" aria-label="Римафон — наверх">
+          <span class="brand__mark">R2</span>
+          <span>РИМАФОН</span>
+        </a>
+        <nav class="main-nav" aria-label="Основная навигация">
+          <a href="#how">Как работает</a>
+          <a href="#season">Сезон</a>
+          <a href="#rules">Правила</a>
+          <a href="#links">Ссылки</a>
+        </nav>
+        <a class="button" href="https://www.donationalerts.com/r/krekeros" target="_blank" rel="noopener noreferrer">+ Добавить идею</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-content reveal">
+            <span class="eyebrow" id="hero-season-label">Римафон · сезон 2</span>
+            <h1 id="hero-title">Вы выбираете <span class="accent-stroke">следующую</span> колонию</h1>
+            <p class="hero-copy" id="hero-description">Предлагайте идеи для прохождения RimWorld. Они попадают в общую рулетку, а выбранные варианты становятся новыми форматами стримов. Каждые 10&nbsp;000&nbsp;₽ добавляют ещё один стрим к неделе.</p>
+            <div class="hero-actions">
+              <a class="button" href="https://www.donationalerts.com/r/krekeros" target="_blank" rel="noopener noreferrer">Предложить идею <span aria-hidden="true">↗</span></a>
+              <a class="button button--ghost" href="#rules">Сначала правила</a>
+            </div>
+            <div class="season-stats" aria-label="Статистика нового сезона">
+              <div class="stat"><strong id="hero-ideas-count">0</strong><span>идей в рулетке</span></div>
+              <div class="stat"><strong id="hero-colonies-count">0</strong><span>колоний в очереди</span></div>
+              <div class="stat"><strong id="stream-target">10К</strong><span>за дополнительный стрим</span></div>
+            </div>
+          </div>
+
+          <div class="hero-art reveal">
+            <div class="poster-frame">
+              <img src="rimafon-season2-hero.png" alt="Персонаж нового сезона Римафона с рулеткой на фоне колонии" fetchpriority="high" onerror="this.onerror=null;this.src='banner.png'">
+            </div>
+            <div class="poster-stamp" aria-hidden="true">СЕЗОН<br>02</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker__track">
+          <div class="ticker__segment">
+            <span>ПРЕДЛОЖЕНИЕ ИДЕЙ</span><i>✦</i>
+            <span>РУЛЕТКА</span><i>✦</i>
+            <span>НОВАЯ КОЛОНИЯ</span><i>✦</i>
+            <span>СТРИМ</span><i>✦</i>
+          </div>
+          <div class="ticker__segment">
+            <span>ПРЕДЛОЖЕНИЕ ИДЕЙ</span><i>✦</i>
+            <span>РУЛЕТКА</span><i>✦</i>
+            <span>НОВАЯ КОЛОНИЯ</span><i>✦</i>
+            <span>СТРИМ</span><i>✦</i>
+          </div>
+        </div>
+      </div>
+
+      <section id="how" class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <span class="section-kicker">Механика события</span>
+              <h2>Как проходит Римафон</h2>
+            </div>
+            <p>Задумка осталась прежней: зрители наполняют рулетку, а каждый новый старт превращается в отдельный челлендж.</p>
+          </div>
+          <div class="steps">
+            <article class="step-card reveal">
+              <span class="step-no">01</span>
+              <span class="step-card__glyph" aria-hidden="true">+</span>
+              <h3>Предложи идею</h3>
+              <p>Отправь донат от <span data-donation-min>100</span>&nbsp;₽ и напиши в сообщении название, условие и желаемую цель челленджа.</p>
+            </article>
+            <article class="step-card reveal">
+              <span class="step-no">02</span>
+              <span class="step-card__glyph" aria-hidden="true">↻</span>
+              <h3>Дождись рулетки</h3>
+              <p>Между стартами форматов рулетка выбирает идею. Выбранная идея уходит из списка.</p>
+            </article>
+            <article class="step-card reveal">
+              <span class="step-no">03</span>
+              <span class="step-card__glyph" aria-hidden="true">⚡</span>
+              <h3>Смотри прохождение</h3>
+              <p>Идея становится колонией на один или несколько стримов — пока интересна чату и стримеру.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="season" class="section section--soft">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <span class="section-kicker">Сезон 02 / статус</span>
+              <h2>Колонии второго сезона</h2>
+            </div>
+            <p>Все колонии и заявки прошлого сезона обнулены. Здесь появятся первые участники новой очереди.</p>
+          </div>
+
+          <div class="season-board">
+            <section class="board-card reveal" aria-labelledby="current-title">
+              <div class="board-top">
+                <span class="board-label">Текущая колония</span>
+                <span class="live-state">Ожидает старта</span>
+              </div>
+              <div class="empty-colony" id="current-colony">
+                <div>
+                  <div class="empty-colony__icon" aria-hidden="true">0</div>
+                  <h3 id="current-title">Колония ещё не выбрана</h3>
+                  <p>Здесь появится первый выбранный формат второго сезона. Предложения уже можно добавлять в новую рулетку.</p>
+                  <a class="button" href="https://www.donationalerts.com/r/krekeros" target="_blank" rel="noopener noreferrer">Забросить идею</a>
+                </div>
+              </div>
+            </section>
+
+            <aside class="queue">
+              <section class="queue-card reveal" aria-labelledby="queue-title">
+                <div class="queue-card__head">
+                  <h3 id="queue-title">Следующие колонии</h3>
+                  <span class="count" id="upcoming-count">0</span>
+                </div>
+                <div class="queue-empty" id="upcoming-list">Пока нет запланированных колоний.</div>
+              </section>
+
+              <section class="queue-card reveal" aria-labelledby="ideas-title">
+                <div class="queue-card__head">
+                  <h3 id="ideas-title">Идеи в рулетке</h3>
+                  <span class="count" id="possible-count">0</span>
+                </div>
+                <div class="queue-empty ideas-list" id="possible-list">Новый сезон начинается с нуля.</div>
+              </section>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="finished" class="section" hidden>
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="section-kicker">Архив сезона</span>
+              <h2>Завершённые колонии <span id="finished-count" class="muted small">0</span></h2>
+            </div>
+            <p>Прошедшие форматы, записи стримов и использованные сборки.</p>
+          </div>
+          <div class="archive-grid" id="finished-list"></div>
+        </div>
+      </section>
+
+      <section id="rules" class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <span class="section-kicker">Коротко и понятно</span>
+              <h2>Условия участия</h2>
+            </div>
+            <p>В сообщении к донату нужно кратко объяснить идею, её главное условие и желаемый результат прохождения.</p>
+          </div>
+
+          <div class="rules-grid">
+            <article class="rule-panel rule-panel--paper reveal">
+              <h3>Как добавить идею</h3>
+              <ol class="rule-list" id="adding-rules">
+                <li><b>01</b><span>Отправьте донат от <span data-donation-min>100</span>&nbsp;₽ через DonationAlerts.</span></li>
+                <li><b>02</b><span>В поле сообщения напишите короткое и понятное название идеи.</span></li>
+                <li><b>03</b><span>Опишите главное условие или челлендж, который можно реализовать в RimWorld.</span></li>
+                <li><b>04</b><span>По возможности добавьте цель: чего нужно достичь, чтобы формат считался пройденным.</span></li>
+              </ol>
+              <p class="fine-print" id="adding-example">Пример: «Колония кочевников — нельзя строить постоянную базу — посетить пять поселений и покинуть планету».</p>
+            </article>
+
+            <article class="rule-panel reveal">
+              <h3>Допустимые форматы</h3>
+              <ul class="rule-list" id="format-rules">
+                <li><b>01</b><span>Можно предлагать отдельные челленджи, необычные условия, сценарии и цели прохождения.</span></li>
+                <li><b>02</b><span>Разрешены и крупные форматы — например, средневековая сборка. У такого предложения должна быть чёткая и интересная идея, а не только большая подборка модов.</span></li>
+                <li><b>03</b><span>Подготовка крупной сборки требует больше времени, поэтому её старт может быть перенесён в очереди.</span></li>
+                <li><b>04</b><span>Стримы проходят каждый день и длятся минимум три часа.</span></li>
+                <li><b>05</b><span>Обычно используется <a class="inline-link" href="https://boosty.to/krekeross/posts/a118690e-c1ed-48c1-a8be-1b9ff6a4dc0b" target="_blank" rel="noopener noreferrer">RICE STANDART</a> плюс несколько модов под конкретный формат.</span></li>
+                <li><b>06</b><span>Без 18+ модов и чужих готовых сборок. Исключение — HSK.</span></li>
+                <li><b>07</b><span>Если идею технически невозможно запустить, её можно упростить или перенести сумму на другое предложение.</span></li>
+                <li><b>08</b><span>Правила могут уточняться по ходу сезона, если это необходимо для подготовки или честного проведения.</span></li>
+              </ul>
+              <p class="fine-print" id="formats-note">Для подготовки заранее выбираются три ближайшие идеи. Между форматами возможны коллаборации или технические стримы со сборками.</p>
+            </article>
+          </div>
+
+          <article class="special-lot reveal">
+            <div>
+              <span class="special-lot__badge">Отдельный вариант</span>
+              <h3 id="new-game-title">Лот «Новая игра»</h3>
+              <p id="new-game-intro">В рулетку можно добавить специальный лот. Если он выпадет, вне основного расписания пройдёт отдельный выбор новой игры с участием чата и донатов.</p>
+            </div>
+            <div>
+              <ul class="rule-list" id="new-game-rules">
+                <li><b>01</b><span>В донате можно сразу указать игру, которую вы хотите добавить в голосование.</span></li>
+                <li><b>02</b><span>Предложения чата и донатеров попадут в отдельную единоразовую рулетку.</span></li>
+                <li><b>03</b><span>Игра должна подходить для прохождения или полноценного знакомства максимум за 2–3 стрима.</span></li>
+                <li><b>04</b><span>Без 18+ контента; предложение должно быть адекватным и подходить для трансляции.</span></li>
+              </ul>
+              <p class="fine-print" id="new-game-note">Выпадение лота запускает выбор новой игры, но не гарантирует автоматический запуск конкретной игры, указанной в донате.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--soft" aria-labelledby="boosty-title">
+        <div class="container">
+          <article class="boosty-card reveal">
+            <div class="boosty-copy">
+              <span class="section-kicker">Сборки и порядки модов</span>
+              <h2 id="boosty-title">Все актуальные списки — на Boosty</h2>
+              <p>Для колоний второго сезона будет много разных порядков модов. Перед запуском сборки проверяйте актуальную версию на Boosty — там будут ссылки, порядок загрузки и обновления.</p>
+              <a class="button" href="https://boosty.to/krekeross" target="_blank" rel="noopener noreferrer">Открыть Boosty <span aria-hidden="true">↗</span></a>
+            </div>
+            <ul class="boosty-list">
+              <li>Порядок загрузки модов</li>
+              <li>Ссылки на актуальные коллекции</li>
+              <li>Изменения перед следующими стримами</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="links" class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <span class="section-kicker">Не потеряться</span>
+              <h2>Где живёт Римафон</h2>
+            </div>
+            <p>Стримы, анонсы, сборки и тот самый подвал — всё нужное в одном месте.</p>
+          </div>
+          <div class="links-grid">
+            <a class="social-link reveal" href="https://boosty.to/krekeross" target="_blank" rel="noopener noreferrer"><span>Порядки модов</span><strong>Boosty</strong><i aria-hidden="true">↗</i></a>
+            <a class="social-link reveal" href="https://twitch.tv/krekeross" target="_blank" rel="noopener noreferrer"><span>Стримы</span><strong>Twitch</strong><i aria-hidden="true">↗</i></a>
+            <a class="social-link reveal" href="https://www.youtube.com/channel/UC1bAC9hbVc-hnDwIAuHsDRg" target="_blank" rel="noopener noreferrer"><span>Видео</span><strong>YouTube</strong><i aria-hidden="true">↗</i></a>
+            <a class="social-link reveal" href="https://t.me/Krek4at" target="_blank" rel="noopener noreferrer"><span>Анонсы</span><strong>Telegram</strong><i aria-hidden="true">↗</i></a>
+            <a class="social-link reveal" href="https://discord.gg/Vrbux5k" target="_blank" rel="noopener noreferrer"><span>Комьюнити</span><strong>Discord</strong><i aria-hidden="true">↗</i></a>
+            <a class="social-link reveal" href="https://steamcommunity.com/id/KrekerShow/myworkshopfiles/?section=collections&amp;appid=294100" target="_blank" rel="noopener noreferrer"><span>Моды 1.6</span><strong>Steam</strong><i aria-hidden="true">↗</i></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <span>Римафон · сезон 2 · <span id="year"></span></span>
+        <a href="https://boosty.to/krekeross" target="_blank" rel="noopener noreferrer">Порядок модов на Boosty ↗</a>
+      </div>
+    </footer>
+
+    <a class="mobile-cta" href="https://www.donationalerts.com/r/krekeros" target="_blank" rel="noopener noreferrer">+ Добавить идею</a>
+
+    <script>
+      const upcoming = [];
+
+      const upcomingList = document.getElementById("upcoming-list");
+      const upcomingCount = document.getElementById("upcoming-count");
+      const possibleList = document.getElementById("possible-list");
+      const possibleCount = document.getElementById("possible-count");
+      const heroIdeasCount = document.getElementById("hero-ideas-count");
+      const heroColoniesCount = document.getElementById("hero-colonies-count");
+
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>"']/g, (char) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#039;"
+        })[char]);
+      }
+
+      function renderUpcoming() {
+        const list = upcoming.slice();
+        upcomingCount.textContent = String(list.length);
+        heroColoniesCount.textContent = String(list.length);
+
+        if (!list.length) {
+          upcomingList.className = "queue-empty";
+          upcomingList.textContent = "Пока нет запланированных колоний.";
+          return;
+        }
+
+        upcomingList.className = "ideas-list";
+        upcomingList.innerHTML = list.map((item) => `
+          <div class="idea-row">
+            <strong>${escapeHtml(item.title || "Без названия")}</strong>
+            <span>${escapeHtml(item.desc || "")}</span>
+          </div>
+        `).join("");
+      }
+
+      async function loadIdeas() {
+        try {
+          const response = await fetch("Letter.txt", { cache: "no-store" });
+          if (!response.ok) return [];
+          const data = await response.json();
+          return Array.isArray(data) ? data : [];
+        } catch (_) {
+          return [];
+        }
+      }
+
+      function renderIdeas(items) {
+        const sorted = items
+          .slice()
+          .sort((a, b) => (Number(b.amount) || 0) - (Number(a.amount) || 0));
+
+        possibleCount.textContent = String(sorted.length);
+        heroIdeasCount.textContent = String(sorted.length);
+
+        if (!sorted.length) {
+          possibleList.className = "queue-empty ideas-list";
+          possibleList.textContent = "Новый сезон начинается с нуля.";
+          return;
+        }
+
+        possibleList.className = "ideas-list";
+        possibleList.innerHTML = sorted.map((item) => `
+          <div class="idea-row">
+            <strong>${escapeHtml(item.name || "Без названия")}</strong>
+            <span>${(Number(item.amount) || 0).toLocaleString("ru-RU")} ₽</span>
+          </div>
+        `).join("");
+      }
+
+      function setupNavigation() {
+        const links = Array.from(document.querySelectorAll(".main-nav a"));
+        const sections = links
+          .map((link) => document.querySelector(link.getAttribute("href")))
+          .filter(Boolean);
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            links.forEach((link) => {
+              link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+            });
+          });
+        }, { rootMargin: "-38% 0px -56%", threshold: 0 });
+
+        sections.forEach((section) => observer.observe(section));
+      }
+
+      function setupReveals() {
+        const items = document.querySelectorAll(".reveal");
+        if (!("IntersectionObserver" in window)) {
+          items.forEach((item) => item.classList.add("visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.12 });
+
+        items.forEach((item) => observer.observe(item));
+      }
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+      renderUpcoming();
+      renderIdeas([]);
+      setupNavigation();
+      setupReveals();
+    </script>
+    <script src="content-loader.js"></script>
+  </body>
+</html>
