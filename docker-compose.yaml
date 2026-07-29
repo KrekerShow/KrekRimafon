@@ -1,6 +1,11 @@
 services:
-  web:
+  rimafon-main-page:
+    container_name: rimafon-main-page
     build: .
-    ports:
-      - "80:80"
+    networks:
+      - nginx-proxy
     restart: unless-stopped
+
+networks:
+  nginx-proxy:
+    external: true
