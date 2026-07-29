@@ -1,10 +1,12 @@
 services:
   rimafon-main-page:
     container_name: rimafon-main-page
-    build: .
+    image: nginx:alpine
     networks:
       - nginx-proxy
     restart: unless-stopped
+    volumes:
+      - ./index:/usr/share/nginx/html
 
 networks:
   nginx-proxy:
