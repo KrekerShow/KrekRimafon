@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-07T13:18:18.173Z",
+  "updatedAt": "2026-08-07T13:19:50.058Z",
   "settings": {
     "seasonLabel": "Римафон · сезон 2",
     "heroTitle": "Вы выбираете следующую колонию",
@@ -44,7 +44,7 @@
       "name": "День открытых дверь",
       "amount": 3920,
       "description": "Играю как хочу, но НЕЛЬЗЯ СТРОИТЬ ДВЕРИ, цель построить корабль и улететь!",
-      "status": "roulette",
+      "status": "upcoming",
       "image": "",
       "watchUrl": "",
       "modsUrl": ""
