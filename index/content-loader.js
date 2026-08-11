@@ -261,7 +261,7 @@
     }
 
     mount.className = "ideas-list";
-    ideas.forEach((idea) => mount.append(createIdeaRow(idea, false)));
+    ideas.forEach((idea) => mount.append(createIdeaRow(idea, true)));
   }
 
   function renderRoulette(ideas) {
@@ -294,7 +294,7 @@
     section.hidden = !ideas.length;
     count.textContent = String(ideas.length);
     mount.replaceChildren();
-    ideas.forEach((idea) => mount.append(createIdeaRow(idea, false)));
+    ideas.forEach((idea) => mount.append(createIdeaRow(idea, true)));
   }
 
   function applyContent(content) {

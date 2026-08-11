@@ -893,18 +893,21 @@
 
       /* Счётчик завершённых колоний не липнет к заголовку */
       .finished-heading {
-        display: flex;
+        display: grid;
+        grid-template-columns: minmax(0, auto) auto;
         align-items: center;
-        gap: 18px;
-        flex-wrap: wrap;
+        justify-content: start;
+        gap: 12px;
+        font-size: clamp(34px, 4.7vw, 56px);
       }
 
       .finished-heading__count {
         display: inline-grid;
-        min-width: 50px;
-        height: 44px;
-        padding: 0 13px;
+        min-width: 46px;
+        height: 40px;
+        padding: 0 12px;
         place-items: center;
+        align-self: center;
         border-radius: 999px;
         background: var(--paper);
         color: var(--ink);
@@ -1788,6 +1791,6 @@
       setupNavigation();
       setupReveals();
     </script>
-    <script src="content-loader.js"></script>
+    <script src="content-loader.js?v=20260811"></script>
   </body>
 </html>
