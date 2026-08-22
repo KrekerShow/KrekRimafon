@@ -390,6 +390,51 @@
         box-shadow: 7px 8px 0 var(--ink);
       }
 
+
+      /* Верхний блок расписания и механики Римафона */
+      .top-info {
+        padding: 0 0 34px;
+      }
+
+      .top-info__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+        gap: 14px;
+      }
+
+      .top-schedule,
+      .goal-mechanics {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(33, 24, 18, .94);
+        box-shadow: var(--shadow);
+      }
+
+      .top-schedule { padding: 20px; }
+      .top-schedule__head { display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:14px; }
+      .top-schedule__head h2 { margin:0; font:800 clamp(20px,3vw,28px)/1.1 var(--display); letter-spacing:-.03em; }
+      .top-schedule__head span { color:var(--orange); font-size:11px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+      .top-schedule__times { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+      .top-schedule__time { padding:14px 16px; border-radius:14px; background:rgba(255,255,255,.045); }
+      .top-schedule__time span { display:block; margin-bottom:5px; color:var(--muted); font-size:11px; font-weight:800; }
+      .top-schedule__time strong { font:900 22px/1 var(--display); color:var(--cream); }
+      .top-schedule__time b { margin-left:5px; color:var(--lime); font-size:11px; }
+
+      .goal-mechanics { padding:20px; background:linear-gradient(135deg, rgba(244,111,36,.16), rgba(33,24,18,.96) 48%, rgba(45,155,143,.11)); }
+      .goal-mechanics__eyebrow { color:var(--amber); font-size:11px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+      .goal-mechanics__target { display:flex; align-items:baseline; gap:8px; margin:9px 0 10px; }
+      .goal-mechanics__target strong { font:900 clamp(30px,4vw,44px)/1 var(--display); color:var(--paper); letter-spacing:-.045em; }
+      .goal-mechanics__target span { color:var(--muted); font-size:12px; font-weight:800; }
+      .goal-mechanics__rules { display:grid; gap:7px; margin:0; padding:0; list-style:none; }
+      .goal-mechanics__rules li { display:flex; gap:8px; color:#dfd1bd; font-size:12px; line-height:1.45; }
+      .goal-mechanics__rules li::before { content:"✓"; color:var(--lime); font-weight:900; }
+
+      .section { content-visibility:auto; contain-intrinsic-size:900px; }
+      img { max-width:100%; }
+
+      @media (max-width: 860px) { .top-info__grid { grid-template-columns:1fr; } }
+      @media (max-width: 520px) { .top-schedule__times { grid-template-columns:1fr; } }
+
       .ticker {
         overflow: hidden;
         transform: rotate(-1deg);
@@ -893,21 +938,18 @@
 
       /* Счётчик завершённых колоний не липнет к заголовку */
       .finished-heading {
-        display: grid;
-        grid-template-columns: minmax(0, auto) auto;
+        display: flex;
         align-items: center;
-        justify-content: start;
-        gap: 12px;
-        font-size: clamp(34px, 4.7vw, 56px);
+        gap: 18px;
+        flex-wrap: wrap;
       }
 
       .finished-heading__count {
         display: inline-grid;
-        min-width: 46px;
-        height: 40px;
-        padding: 0 12px;
+        min-width: 50px;
+        height: 44px;
+        padding: 0 13px;
         place-items: center;
-        align-self: center;
         border-radius: 999px;
         background: var(--paper);
         color: var(--ink);
@@ -1405,6 +1447,7 @@
           <span>РИМАФОН</span>
         </a>
         <nav class="main-nav" aria-label="Основная навигация">
+          <a href="#top-schedule">Расписание</a>
           <a href="#how">Как работает</a>
           <a href="#season">Сезон</a>
           <a href="#rules">Правила</a>
@@ -1420,7 +1463,7 @@
           <div class="hero-content reveal">
             <span class="eyebrow" id="hero-season-label">Римафон · сезон 2</span>
             <h1 id="hero-title">Вы выбираете <span class="accent-stroke">следующую</span> колонию</h1>
-            <p class="hero-copy" id="hero-description">Предлагайте идеи для прохождения RimWorld. Они попадают в общую рулетку, а выбранные варианты становятся новыми форматами стримов. Каждые 10&nbsp;000&nbsp;₽ добавляют ещё один стрим к неделе.</p>
+            <p class="hero-copy" id="hero-description">Предлагайте идеи для прохождения RimWorld. Они попадают в общую рулетку, а выбранные варианты становятся новыми форматами стримов. Текущая цель — 13&nbsp;000&nbsp;₽. После каждого заполнения следующая цель становится дороже на 1&nbsp;000&nbsp;₽, а донаты и остаток не обнуляются.</p>
             <div class="hero-actions">
               <a class="button" href="https://www.donationalerts.com/r/krekeros" target="_blank" rel="noopener noreferrer">Предложить идею <span aria-hidden="true">↗</span></a>
               <a class="button button--ghost" href="#rules">Сначала правила</a>
@@ -1428,16 +1471,41 @@
             <div class="season-stats" aria-label="Статистика нового сезона">
               <div class="stat"><strong id="hero-ideas-count">0</strong><span>идей в рулетке</span></div>
               <div class="stat"><strong id="hero-colonies-count">0</strong><span>колоний в очереди</span></div>
-              <div class="stat"><strong id="stream-target">10К</strong><span>за дополнительный стрим</span></div>
+              <div class="stat"><strong id="stream-target">13К</strong><span>текущая цель</span></div>
             </div>
           </div>
 
           <div class="hero-art reveal">
             <div class="poster-frame">
-              <img src="rimafon-season2-hero.png" alt="Персонаж нового сезона Римафона с рулеткой на фоне колонии" fetchpriority="high" onerror="this.onerror=null;this.src='banner.png'">
+              <img src="rimafon-season2-hero.png" alt="Персонаж нового сезона Римафона с рулеткой на фоне колонии" fetchpriority="high" decoding="async" onerror="this.onerror=null;this.src='banner.png'">
             </div>
             <div class="poster-stamp" aria-hidden="true">СЕЗОН<br>02</div>
           </div>
+        </div>
+      </section>
+
+
+      <section class="top-info" id="top-schedule" aria-label="Расписание и механика Римафона">
+        <div class="container top-info__grid">
+          <article class="top-schedule reveal">
+            <div class="top-schedule__head">
+              <h2>Расписание стримов</h2>
+              <span>по МСК</span>
+            </div>
+            <div class="top-schedule__times">
+              <div class="top-schedule__time"><span>Понедельник — пятница</span><strong id="schedule-weekdays">17:00</strong><b>МСК</b></div>
+              <div class="top-schedule__time"><span>Суббота — воскресенье</span><strong id="schedule-weekend">15:00</strong><b>МСК</b></div>
+            </div>
+          </article>
+          <article class="goal-mechanics reveal">
+            <span class="goal-mechanics__eyebrow">Как добавляются стримы</span>
+            <div class="goal-mechanics__target"><strong id="goal-current-target">13 000 ₽</strong><span>текущая цель</span></div>
+            <ul class="goal-mechanics__rules">
+              <li>После заполнения цели следующий порог растёт на <b id="goal-step">1 000 ₽</b>.</li>
+              <li>Донаты не обнуляются — весь прогресс сохраняется.</li>
+              <li>Если донат перелетел цель, остаток сразу идёт в следующую.</li>
+            </ul>
+          </article>
         </div>
       </section>
 
@@ -1498,26 +1566,6 @@
               <h2>Колонии второго сезона</h2>
             </div>
             <p>Все колонии и заявки прошлого сезона обнулены. Здесь появятся первые участники новой очереди.</p>
-          </div>
-
-          <div class="stream-schedule reveal" aria-label="Расписание стримов">
-            <div class="stream-schedule__intro">
-              <span class="stream-schedule__label">Расписание стримов</span>
-              <h3>Когда приходить на Римафон</h3>
-              <p>Стандартное время начала по Москве. Если будет перенос или внеплановый стрим — об этом сообщу отдельно.</p>
-            </div>
-            <div class="stream-schedule__times">
-              <div class="stream-time">
-                <span>Понедельник — пятница</span>
-                <strong>17:00</strong>
-                <b>по МСК</b>
-              </div>
-              <div class="stream-time">
-                <span>Суббота — воскресенье</span>
-                <strong>15:00</strong>
-                <b>по МСК</b>
-              </div>
-            </div>
           </div>
 
           <div class="season-board">
@@ -1598,7 +1646,7 @@
                 <li><b>01</b><span>Можно предлагать отдельные челленджи, необычные условия, сценарии и цели прохождения.</span></li>
                 <li><b>02</b><span>Разрешены и крупные форматы — например, средневековая сборка. У такого предложения должна быть чёткая и интересная идея, а не только большая подборка модов.</span></li>
                 <li><b>03</b><span>Подготовка крупной сборки требует больше времени, поэтому её старт может быть перенесён в очереди.</span></li>
-                <li><b>04</b><span>Стримы проходят каждый день и длятся минимум три часа.</span></li>
+                <li><b>04</b><span>Стримы проходят каждый день: будни — 17:00 МСК, выходные — 15:00 МСК.</span></li>
                 <li><b>05</b><span>Обычно используется <a class="inline-link" href="https://boosty.to/krekeross/posts/a118690e-c1ed-48c1-a8be-1b9ff6a4dc0b" target="_blank" rel="noopener noreferrer">RICE STANDART</a> плюс несколько модов под конкретный формат.</span></li>
                 <li><b>06</b><span>Без 18+ модов и чужих готовых сборок. Исключение — HSK.</span></li>
                 <li><b>07</b><span>Если идею технически невозможно запустить, её можно упростить или перенести сумму на другое предложение.</span></li>
@@ -1791,6 +1839,6 @@
       setupNavigation();
       setupReveals();
     </script>
-    <script src="content-loader.js?v=20260811"></script>
+    <script src="content-loader.js" defer></script>
   </body>
 </html>

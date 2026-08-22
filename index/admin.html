@@ -401,6 +401,110 @@
         line-height: 1.55;
       }
 
+      .import-history,
+      .backup-history,
+      .import-preview {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .history-item,
+      .compare-item {
+        display: grid;
+        gap: 10px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        background: rgba(255, 255, 255, 0.025);
+      }
+
+      .history-item {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+      }
+
+      .history-meta {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .history-title {
+        margin-bottom: 4px;
+        font-weight: 800;
+      }
+
+      .section-title {
+        margin: 26px 0 10px;
+        font-size: 18px;
+      }
+
+      .import-apply-bar {
+        display: grid;
+        grid-template-columns: minmax(220px, 1fr) auto auto;
+        gap: 10px;
+        align-items: center;
+        margin: 14px 0;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: rgba(255, 182, 41, 0.05);
+      }
+
+      .compare-summary {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        margin: 12px 0;
+      }
+
+      .compare-summary div {
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        background: rgba(255,255,255,0.025);
+        font-size: 12px;
+      }
+
+      .compare-item {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+      }
+
+      .compare-badge {
+        display: inline-flex;
+        width: fit-content;
+        margin-top: 6px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .compare-badge--new { background: rgba(200,237,91,.13); color: var(--lime); }
+      .compare-badge--changed { background: rgba(255,182,41,.13); color: var(--amber); }
+      .compare-badge--missing { background: rgba(255,119,109,.12); color: #ffaaa3; }
+      .compare-badge--same { background: rgba(255,255,255,.06); color: var(--muted); }
+
+      .protect-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .protect-row input {
+        width: 18px;
+        min-height: 18px;
+        height: 18px;
+        padding: 0;
+        accent-color: var(--lime);
+      }
+
       .file-input {
         position: absolute;
         width: 1px;
@@ -589,7 +693,11 @@
         .idea-toolbar,
         .idea-main-grid,
         .idea-meta-grid,
-        .import-card {
+        .import-card,
+        .history-item,
+        .compare-item,
+        .import-apply-bar,
+        .compare-summary {
           grid-template-columns: 1fr;
         }
 
@@ -620,7 +728,8 @@
         <div class="top-actions">
           <button class="button button--ghost" id="preview-button" type="button">Предпросмотр</button>
           <button class="button button--ghost" id="save-button" type="button">Сохранить черновик</button>
-          <button class="button button--lime" id="export-button" type="button">Скачать данные сайта</button>
+          <button class="button button--ghost" id="export-button" type="button">Скачать JSON</button>
+          <button class="button button--lime" id="publish-folder-button" type="button">Сохранить в папку Git</button>
         </div>
       </div>
     </header>
@@ -635,15 +744,15 @@
             <button class="tab-button" type="button" data-tab="settings">Настройки</button>
           </nav>
         </div>
-        <p class="sidebar-note">Изменения сохраняются только в вашем браузере. Для публикации скачайте файл <strong>site-content.json</strong> и замените им одноимённый файл на хостинге.</p>
+        <p class="sidebar-note">Черновик хранится в браузере. Для рабочего Git-процесса нажмите <strong>«Сохранить в папку Git»</strong> и выберите папку <strong>index</strong> локального репозитория — JSON и оптимизированные фото будут записаны туда автоматически.</p>
       </aside>
 
       <main class="content">
         <div class="notice">
           <span aria-hidden="true">⚠</span>
           <div>
-            <strong>Эта панель не меняет файлы на хостинге автоматически.</strong>
-            <p>Она собирает готовый файл данных. После редактирования нажмите «Скачать данные сайта» и передайте файл хостеру либо загрузите его через панель хостинга.</p>
+            <strong>Публикация идёт через Git — без тяжёлых картинок внутри JSON.</strong>
+            <p>Новые фото автоматически уменьшаются и переводятся в WebP. Кнопка «Сохранить в папку Git» записывает <strong>site-content.json</strong> и файлы в <strong>images/ideas/</strong>. После этого остаётся commit + push.</p>
           </div>
         </div>
 
@@ -682,14 +791,14 @@
           <div class="panel-head">
             <div>
               <h2>Импорт и резервные копии</h2>
-              <p>Архив PointAuc обновляет рулетку по названиям и суммам. Уже добавленные изображения и описания сохраняются при точном совпадении названия.</p>
+              <p>PointAuc-файлы сначала сохраняются в историю. Актуальный лист меняется только после явного применения выбранного импорта.</p>
             </div>
           </div>
 
           <article class="import-card">
             <div>
-              <h3>Импортировать архив PointAuc</h3>
-              <p>Поддерживается структура с массивом <strong>lots</strong>, как в присланном вами файле. Варианты со статусами «текущая», «следующая» и «завершённая» не удаляются.</p>
+              <h3>Добавить импорт PointAuc в историю</h3>
+              <p>Хранятся последние 3 файла. Загрузка JSON ничего не удаляет и не меняет в текущем списке идей.</p>
             </div>
             <label class="button" for="pointauc-file">Выбрать JSON</label>
             <input class="file-input" id="pointauc-file" type="file" accept=".json,application/json">
@@ -698,7 +807,7 @@
           <article class="import-card">
             <div>
               <h3>Открыть ранее сохранённые данные</h3>
-              <p>Загрузите существующий <strong>site-content.json</strong>, чтобы продолжить работу на другом компьютере или восстановить резервную копию.</p>
+              <p>Загрузите существующий <strong>site-content.json</strong>, чтобы продолжить работу на другом компьютере или восстановить ручную копию.</p>
             </div>
             <label class="button button--ghost" for="content-file">Открыть данные</label>
             <input class="file-input" id="content-file" type="file" accept=".json,application/json">
@@ -707,17 +816,44 @@
           <article class="import-card">
             <div>
               <h3>Начать с опубликованной версии</h3>
-              <p>Удаляет локальный черновик из панели и заново загружает файл данных, лежащий рядом с сайтом.</p>
+              <p>Удаляет локальный черновик и заново загружает <strong>site-content.json</strong>, лежащий рядом с сайтом.</p>
             </div>
             <button class="button button--danger" id="reload-published-button" type="button">Сбросить черновик</button>
           </article>
+
+          <h3 class="section-title">Последние импорты PointAuc</h3>
+          <div class="import-history" id="import-history"></div>
+
+          <div class="import-preview" id="import-preview" hidden>
+            <div class="panel-head" style="margin-bottom:0">
+              <div>
+                <h3 id="import-preview-title" style="margin:0 0 6px">Просмотр импорта</h3>
+                <p id="import-preview-meta"></p>
+              </div>
+            </div>
+            <div class="compare-summary" id="compare-summary"></div>
+            <div class="import-apply-bar">
+              <select id="import-mode" aria-label="Режим применения импорта">
+                <option value="sync">Синхронизировать рулетку</option>
+                <option value="add">Только добавить новое</option>
+                <option value="replace">Полностью пересобрать рулетку</option>
+              </select>
+              <button class="button button--lime" id="apply-import-button" type="button">Применить импорт</button>
+              <button class="button button--ghost" id="close-import-preview" type="button">Закрыть</button>
+            </div>
+            <div id="compare-list"></div>
+          </div>
+
+          <h3 class="section-title">Автоматические резервные копии</h3>
+          <p class="history-meta">Перед каждым применением импорта сохраняется снимок актуального листа. Хранятся последние 3 версии.</p>
+          <div class="backup-history" id="backup-history"></div>
         </section>
 
         <section class="panel" id="panel-rules">
           <div class="panel-head">
             <div>
               <h2>Правила</h2>
-              <p>Один пункт — одна строка. Для ссылки внутри пункта используйте запись <strong>[[название|https://адрес]]</strong>. Доступные подстановки: <strong>{{donationMin}}</strong>, <strong>{{streamTarget}}</strong> и <strong>{{schedule}}</strong>.</p>
+              <p>Один пункт — одна строка. Для ссылки внутри пункта используйте запись <strong>[[название|https://адрес]]</strong>. Доступные подстановки: <strong>{{donationMin}}</strong>, <strong>{{streamTarget}}</strong>, <strong>{{streamTargetStep}}</strong> и <strong>{{schedule}}</strong>.</p>
             </div>
           </div>
 
@@ -770,7 +906,7 @@
           <div class="panel-head">
             <div>
               <h2>Настройки сезона</h2>
-              <p>Основной текст первого экрана, минимальный донат, сумма дополнительного стрима и расписание.</p>
+              <p>Основной текст первого экрана, текущая цель Римафона, шаг увеличения цели и расписание.</p>
             </div>
           </div>
 
@@ -792,11 +928,25 @@
               <input id="setting-donation" type="number" min="0" step="1">
             </div>
             <div class="field">
-              <label for="setting-target">Сумма за дополнительный стрим, ₽</label>
+              <label for="setting-target">Текущая цель за +1 стрим, ₽</label>
               <input id="setting-target" type="number" min="0" step="100">
+              <small>Сейчас 13 000 ₽. После заполнения сайт показывает следующую цель.</small>
+            </div>
+            <div class="field">
+              <label for="setting-target-step">Шаг после заполнения, ₽</label>
+              <input id="setting-target-step" type="number" min="0" step="100">
+              <small>Например: 13 000 → 14 000 → 15 000.</small>
+            </div>
+            <div class="field">
+              <label for="setting-weekdays">Будни, МСК</label>
+              <input id="setting-weekdays" type="text" placeholder="17:00">
+            </div>
+            <div class="field">
+              <label for="setting-weekend">Выходные, МСК</label>
+              <input id="setting-weekend" type="text" placeholder="15:00">
             </div>
             <div class="field field--wide">
-              <label for="setting-schedule">Расписание</label>
+              <label for="setting-schedule">Текст расписания для правил</label>
               <input id="setting-schedule" type="text">
             </div>
           </div>
@@ -808,8 +958,12 @@
 
     <script>
       const DB_NAME = "rimafon-admin";
+      const DB_VERSION = 2;
       const DB_STORE = "drafts";
+      const DB_IMPORTS = "imports";
+      const DB_BACKUPS = "backups";
       const DB_KEY = "current";
+      const HISTORY_LIMIT = 3;
 
       const DEFAULT_CONTENT = {
         version: 1,
@@ -817,10 +971,13 @@
         settings: {
           seasonLabel: "Римафон · сезон 2",
           heroTitle: "Вы выбираете следующую колонию",
-          heroDescription: "Предлагайте идеи для прохождения RimWorld. Они попадают в общую рулетку, а выбранные варианты становятся новыми форматами стримов. Каждые 10 000 ₽ добавляют ещё один стрим к неделе.",
+          heroDescription: "Предлагайте идеи для прохождения RimWorld. Текущая цель — 13 000 ₽. После каждого заполнения следующая цель растёт на 1 000 ₽, а донаты и остаток не обнуляются.",
           donationMin: 100,
-          streamTarget: 10000,
-          schedule: "Стримы проходят каждый день и длятся минимум три часа."
+          streamTarget: 13000,
+          streamTargetStep: 1000,
+          weekdaysTime: "17:00",
+          weekendTime: "15:00",
+          schedule: "Стримы проходят каждый день: будни — 17:00 МСК, выходные — 15:00 МСК. Донаты не обнуляются; после заполнения цели следующий порог увеличивается на 1 000 ₽."
         },
         rules: {
           adding: [
@@ -835,6 +992,8 @@
             "Разрешены и крупные форматы — например, средневековая сборка. У такого предложения должна быть чёткая и интересная идея, а не только большая подборка модов.",
             "Подготовка крупной сборки требует больше времени, поэтому её старт может быть перенесён в очереди.",
             "{{schedule}}",
+            "Донаты не обнуляются: весь накопленный прогресс сохраняется, а перелив сверх цели идёт в следующую цель.",
+            "После каждого заполнения цели следующий порог увеличивается на {{streamTargetStep}} ₽.",
             "Обычно используется [[RICE STANDART|https://boosty.to/krekeross/posts/a118690e-c1ed-48c1-a8be-1b9ff6a4dc0b]] плюс несколько модов под конкретный формат.",
             "Без 18+ модов и чужих готовых сборок. Исключение — HSK.",
             "Если идею технически невозможно запустить, её можно упростить или перенести сумму на другое предложение.",
@@ -857,6 +1016,7 @@
       let state = structuredClone(DEFAULT_CONTENT);
       let activeTab = "ideas";
       let toastTimer = null;
+      let selectedImport = null;
 
       const $ = (selector) => document.querySelector(selector);
       const $$ = (selector) => Array.from(document.querySelectorAll(selector));
@@ -877,6 +1037,7 @@
         const content = value && typeof value === "object" ? value : {};
         const settings = content.settings && typeof content.settings === "object" ? content.settings : {};
         const rules = content.rules && typeof content.rules === "object" ? content.rules : {};
+        const legacyGoalSettings = settings.streamTargetStep === undefined || settings.streamTargetStep === null;
 
         return {
           version: 1,
@@ -886,7 +1047,10 @@
             heroTitle: String(settings.heroTitle || DEFAULT_CONTENT.settings.heroTitle),
             heroDescription: String(settings.heroDescription || DEFAULT_CONTENT.settings.heroDescription),
             donationMin: Math.max(0, Number(settings.donationMin) || 0),
-            streamTarget: Math.max(0, Number(settings.streamTarget) || 0),
+            streamTarget: legacyGoalSettings ? DEFAULT_CONTENT.settings.streamTarget : Math.max(0, Number(settings.streamTarget) || DEFAULT_CONTENT.settings.streamTarget),
+            streamTargetStep: Math.max(0, Number(settings.streamTargetStep) || DEFAULT_CONTENT.settings.streamTargetStep),
+            weekdaysTime: String(settings.weekdaysTime || DEFAULT_CONTENT.settings.weekdaysTime),
+            weekendTime: String(settings.weekendTime || DEFAULT_CONTENT.settings.weekendTime),
             schedule: String(settings.schedule || DEFAULT_CONTENT.settings.schedule)
           },
           rules: {
@@ -906,6 +1070,7 @@
                 amount: Math.max(0, Number(idea.amount) || 0),
                 description: String(idea.description || idea.desc || ""),
                 status: ["roulette", "current", "upcoming", "finished", "hidden"].includes(idea.status) ? idea.status : "roulette",
+                protected: Boolean(idea.protected) || ["current", "upcoming", "finished"].includes(idea.status),
                 image: String(idea.image || ""),
                 watchUrl: String(idea.watchUrl || idea.watch || ""),
                 modsUrl: String(idea.modsUrl || idea.mods || "")
@@ -931,15 +1096,55 @@
 
       function openDatabase() {
         return new Promise((resolve, reject) => {
-          const request = indexedDB.open(DB_NAME, 1);
+          const request = indexedDB.open(DB_NAME, DB_VERSION);
           request.onupgradeneeded = () => {
-            if (!request.result.objectStoreNames.contains(DB_STORE)) {
-              request.result.createObjectStore(DB_STORE);
-            }
+            const db = request.result;
+            if (!db.objectStoreNames.contains(DB_STORE)) db.createObjectStore(DB_STORE);
+            if (!db.objectStoreNames.contains(DB_IMPORTS)) db.createObjectStore(DB_IMPORTS, { keyPath: "id" });
+            if (!db.objectStoreNames.contains(DB_BACKUPS)) db.createObjectStore(DB_BACKUPS, { keyPath: "id" });
           };
           request.onsuccess = () => resolve(request.result);
           request.onerror = () => reject(request.error);
         });
+      }
+
+      async function getAllFromStore(storeName) {
+        const database = await openDatabase();
+        const result = await new Promise((resolve, reject) => {
+          const transaction = database.transaction(storeName, "readonly");
+          const request = transaction.objectStore(storeName).getAll();
+          request.onsuccess = () => resolve(request.result || []);
+          request.onerror = () => reject(request.error);
+        });
+        database.close();
+        return result;
+      }
+
+      async function putStoreRecord(storeName, record) {
+        const database = await openDatabase();
+        await new Promise((resolve, reject) => {
+          const transaction = database.transaction(storeName, "readwrite");
+          transaction.objectStore(storeName).put(record);
+          transaction.oncomplete = resolve;
+          transaction.onerror = () => reject(transaction.error);
+        });
+        database.close();
+      }
+
+      async function deleteStoreRecord(storeName, id) {
+        const database = await openDatabase();
+        await new Promise((resolve, reject) => {
+          const transaction = database.transaction(storeName, "readwrite");
+          transaction.objectStore(storeName).delete(id);
+          transaction.oncomplete = resolve;
+          transaction.onerror = () => reject(transaction.error);
+        });
+        database.close();
+      }
+
+      async function trimStore(storeName, limit = HISTORY_LIMIT) {
+        const records = (await getAllFromStore(storeName)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        await Promise.all(records.slice(limit).map((record) => deleteStoreRecord(storeName, record.id)));
       }
 
       async function saveDraft(silent = false) {
@@ -991,6 +1196,9 @@
         $("#setting-description").value = state.settings.heroDescription;
         $("#setting-donation").value = state.settings.donationMin;
         $("#setting-target").value = state.settings.streamTarget;
+        $("#setting-target-step").value = state.settings.streamTargetStep;
+        $("#setting-weekdays").value = state.settings.weekdaysTime;
+        $("#setting-weekend").value = state.settings.weekendTime;
         $("#setting-schedule").value = state.settings.schedule;
         $("#rules-adding").value = state.rules.adding.join("\n");
         $("#rules-adding-example").value = state.rules.addingExample;
@@ -1008,6 +1216,9 @@
         state.settings.heroDescription = $("#setting-description").value.trim();
         state.settings.donationMin = Math.max(0, Number($("#setting-donation").value) || 0);
         state.settings.streamTarget = Math.max(0, Number($("#setting-target").value) || 0);
+        state.settings.streamTargetStep = Math.max(0, Number($("#setting-target-step").value) || 0);
+        state.settings.weekdaysTime = $("#setting-weekdays").value.trim();
+        state.settings.weekendTime = $("#setting-weekend").value.trim();
         state.settings.schedule = $("#setting-schedule").value.trim();
         state.rules.adding = splitLines($("#rules-adding").value);
         state.rules.addingExample = $("#rules-adding-example").value.trim();
@@ -1102,6 +1313,8 @@
             const image = document.createElement("img");
             image.src = idea.image;
             image.alt = "";
+            image.loading = "lazy";
+            image.decoding = "async";
             imageColumn.append(image);
           } else {
             const empty = document.createElement("div");
@@ -1116,7 +1329,7 @@
           imageLabel.textContent = idea.image ? "Заменить фото" : "Добавить фото";
           imageInput.className = "file-input";
           imageInput.type = "file";
-          imageInput.accept = "image/png,image/jpeg,image/webp";
+          imageInput.accept = "image/png,image/jpeg,image/webp,image/avif";
           imageInput.dataset.action = "image";
           imageLabel.append(imageInput);
           imageColumn.append(imageLabel);
@@ -1164,6 +1377,16 @@
             makeField("Ссылка на моды", makeInput(idea.modsUrl, "modsUrl", "url"))
           );
 
+          const protectRow = document.createElement("label");
+          protectRow.className = "protect-row";
+          const protectInput = document.createElement("input");
+          protectInput.type = "checkbox";
+          protectInput.checked = Boolean(idea.protected);
+          protectInput.dataset.field = "protected";
+          const protectText = document.createElement("span");
+          protectText.textContent = "Защищено от удаления импортом";
+          protectRow.append(protectInput, protectText);
+
           const actions = document.createElement("div");
           actions.className = "idea-actions";
           [
@@ -1180,7 +1403,7 @@
             actions.append(button);
           });
 
-          body.append(mainGrid, descriptionField, metaGrid, actions);
+          body.append(mainGrid, descriptionField, metaGrid, protectRow, actions);
           card.append(imageColumn, body);
           mount.append(card);
         });
@@ -1200,13 +1423,13 @@
             element.onerror = reject;
             element.src = objectUrl;
           });
-          const maxSide = 1200;
+          const maxSide = 1000;
           const scale = Math.min(1, maxSide / Math.max(image.naturalWidth, image.naturalHeight));
           const canvas = document.createElement("canvas");
           canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
           canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
           canvas.getContext("2d").drawImage(image, 0, 0, canvas.width, canvas.height);
-          const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/webp", 0.78));
+          const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/webp", 0.76));
           if (!blob) throw new Error("Не удалось сжать изображение");
           return await new Promise((resolve, reject) => {
             const reader = new FileReader();
@@ -1230,7 +1453,7 @@
           try {
             idea.image = await compressImage(event.target.files[0]);
             renderIdeas();
-            showToast("Изображение добавлено и уменьшено");
+            showToast("Фото оптимизировано в WebP и готово для Git");
           } catch (_) {
             showToast("Не удалось обработать изображение");
           }
@@ -1239,7 +1462,16 @@
 
         const field = event.target.dataset.field;
         if (!field) return;
-        idea[field] = field === "amount" ? Math.max(0, Number(event.target.value) || 0) : event.target.value;
+        if (field === "amount") {
+          idea[field] = Math.max(0, Number(event.target.value) || 0);
+        } else if (field === "protected") {
+          idea.protected = Boolean(event.target.checked);
+        } else {
+          idea[field] = event.target.value;
+        }
+        if (field === "status" && ["current", "upcoming", "finished"].includes(idea.status)) {
+          idea.protected = true;
+        }
         if (field === "status" && idea.status === "current") {
           state.ideas.forEach((other) => {
             if (other.id !== idea.id && other.status === "current") other.status = "upcoming";
@@ -1279,60 +1511,366 @@
         return JSON.parse(await file.text());
       }
 
-      async function importPointAuc(file) {
-        const payload = await readJsonFile(file);
-        if (!Array.isArray(payload?.lots)) {
-          throw new Error("В файле нет массива lots");
-        }
+      function normalizePointAucPayload(payload) {
+        if (!Array.isArray(payload?.lots)) throw new Error("В файле нет массива lots");
+        const lots = payload.lots.map((lot) => ({
+          name: String(lot?.name || "").trim() || "Без названия",
+          amount: Math.max(0, Number(lot?.amount) || 0)
+        }));
+        return { lots };
+      }
 
-        const existing = new Map(state.ideas.map((idea) => [normalizeName(idea.name), idea]));
-        const lotsByName = new Map(
-          payload.lots.map((lot) => [normalizeName(lot?.name), lot])
-        );
-        const protectedIdeas = state.ideas
-          .filter((idea) => idea.status !== "roulette")
-          .map((idea) => {
-            const lot = lotsByName.get(normalizeName(idea.name));
-            return lot
-              ? { ...idea, amount: Math.max(0, Number(lot?.amount) || 0) }
-              : idea;
-          });
-        const imported = payload.lots.map((lot) => {
-          const name = String(lot?.name || "").trim() || "Без названия";
-          const previous = existing.get(normalizeName(name));
-          if (previous) {
-            return {
-              ...previous,
-              name,
-              amount: Math.max(0, Number(lot?.amount) || 0)
-            };
+      function formatLocalDate(value) {
+        try {
+          return new Intl.DateTimeFormat("ru-RU", { dateStyle: "medium", timeStyle: "short" }).format(new Date(value));
+        } catch (_) {
+          return String(value || "");
+        }
+      }
+
+      async function saveImportVersion(file) {
+        const payload = normalizePointAucPayload(await readJsonFile(file));
+        const createdAt = new Date().toISOString();
+        const record = {
+          id: `import-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+          createdAt,
+          fileName: file.name || "PointAuc.json",
+          lots: payload.lots
+        };
+        await putStoreRecord(DB_IMPORTS, record);
+        await trimStore(DB_IMPORTS);
+        selectedImport = record;
+        await renderImportHistory();
+        renderImportPreview(record);
+        showToast(`Импорт сохранён в историю: ${record.lots.length} вариантов`);
+      }
+
+      async function createBackup(reason = "Перед импортом") {
+        syncFormsToState();
+        const record = {
+          id: `backup-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+          createdAt: new Date().toISOString(),
+          reason,
+          state: clone(state)
+        };
+        await putStoreRecord(DB_BACKUPS, record);
+        await trimStore(DB_BACKUPS);
+        await renderBackupHistory();
+      }
+
+      function buildImportComparison(record) {
+        const currentByName = new Map(state.ideas.map((idea) => [normalizeName(idea.name), idea]));
+        const importByName = new Map(record.lots.map((lot) => [normalizeName(lot.name), lot]));
+        const rows = [];
+
+        record.lots.forEach((lot) => {
+          const key = normalizeName(lot.name);
+          const current = currentByName.get(key);
+          if (!current) {
+            rows.push({ type: "new", lot, current: null });
+          } else if ((Number(current.amount) || 0) !== (Number(lot.amount) || 0)) {
+            rows.push({ type: "changed", lot, current });
+          } else {
+            rows.push({ type: "same", lot, current });
           }
-          return {
+        });
+
+        state.ideas.forEach((idea) => {
+          const key = normalizeName(idea.name);
+          if (!importByName.has(key) && idea.status === "roulette") {
+            rows.push({ type: "missing", lot: null, current: idea });
+          }
+        });
+        return rows;
+      }
+
+      function compareTypeLabel(type) {
+        return { new: "Новая идея", changed: "Изменилась сумма", missing: "Нет в импорте", same: "Без изменений" }[type] || type;
+      }
+
+      async function renderImportHistory() {
+        const mount = $("#import-history");
+        const records = (await getAllFromStore(DB_IMPORTS)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        mount.replaceChildren();
+        if (!records.length) {
+          const empty = document.createElement("div");
+          empty.className = "empty-state";
+          empty.textContent = "История импортов пока пуста.";
+          mount.append(empty);
+          return;
+        }
+        records.forEach((record) => {
+          const item = document.createElement("div");
+          item.className = "history-item";
+          const info = document.createElement("div");
+          const total = record.lots.reduce((sum, lot) => sum + (Number(lot.amount) || 0), 0);
+          info.innerHTML = `<div class="history-title"></div><div class="history-meta"></div>`;
+          info.querySelector(".history-title").textContent = record.fileName;
+          info.querySelector(".history-meta").textContent = `${formatLocalDate(record.createdAt)} · ${record.lots.length} идей · ${total.toLocaleString("ru-RU")} ₽`;
+          const actions = document.createElement("div");
+          actions.className = "file-actions";
+          const open = document.createElement("button");
+          open.className = "mini-button";
+          open.type = "button";
+          open.textContent = "Открыть / сравнить";
+          open.addEventListener("click", () => { selectedImport = record; renderImportPreview(record); });
+          actions.append(open);
+          item.append(info, actions);
+          mount.append(item);
+        });
+      }
+
+      function renderImportPreview(record) {
+        selectedImport = record;
+        const preview = $("#import-preview");
+        preview.hidden = false;
+        $("#import-preview-title").textContent = record.fileName;
+        $("#import-preview-meta").textContent = `${formatLocalDate(record.createdAt)} · ${record.lots.length} вариантов`;
+        const rows = buildImportComparison(record);
+        const counts = { new: 0, changed: 0, missing: 0, same: 0 };
+        rows.forEach((row) => counts[row.type]++);
+        const summary = $("#compare-summary");
+        summary.replaceChildren();
+        [
+          ["Новые", counts.new],
+          ["Изменено", counts.changed],
+          ["Нет в импорте", counts.missing],
+          ["Без изменений", counts.same]
+        ].forEach(([label, value]) => {
+          const box = document.createElement("div");
+          box.innerHTML = `<strong>${value}</strong><br><span>${label}</span>`;
+          summary.append(box);
+        });
+
+        const list = $("#compare-list");
+        list.replaceChildren();
+        rows.forEach((row) => {
+          const item = document.createElement("div");
+          item.className = "compare-item";
+          const info = document.createElement("div");
+          const name = row.lot?.name || row.current?.name || "Без названия";
+          const currentAmount = row.current ? `${(Number(row.current.amount) || 0).toLocaleString("ru-RU")} ₽` : "—";
+          const importAmount = row.lot ? `${(Number(row.lot.amount) || 0).toLocaleString("ru-RU")} ₽` : "—";
+          const title = document.createElement("div");
+          title.className = "history-title";
+          title.textContent = name;
+          const meta = document.createElement("div");
+          meta.className = "history-meta";
+          meta.textContent = `Сейчас: ${currentAmount} · Импорт: ${importAmount}${row.current?.protected ? " · защищено" : ""}`;
+          const badge = document.createElement("span");
+          badge.className = `compare-badge compare-badge--${row.type}`;
+          badge.textContent = compareTypeLabel(row.type);
+          info.append(title, meta, badge);
+
+          const actions = document.createElement("div");
+          if (row.lot) {
+            const transfer = document.createElement("button");
+            transfer.className = "mini-button";
+            transfer.type = "button";
+            transfer.textContent = row.current ? "Обновить в актуальном" : "Добавить в актуальный";
+            transfer.addEventListener("click", () => transferLotToCurrent(row.lot));
+            actions.append(transfer);
+          }
+          item.append(info, actions);
+          list.append(item);
+        });
+        preview.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function transferLotToCurrent(lot) {
+        const key = normalizeName(lot.name);
+        const existing = state.ideas.find((idea) => normalizeName(idea.name) === key);
+        if (existing) {
+          existing.amount = Math.max(0, Number(lot.amount) || 0);
+        } else {
+          state.ideas.unshift({
             id: uid(),
-            name,
-            amount: Math.max(0, Number(lot?.amount) || 0),
+            name: lot.name,
+            amount: Math.max(0, Number(lot.amount) || 0),
             description: "",
             status: "roulette",
+            protected: false,
             image: "",
             watchUrl: "",
             modsUrl: ""
-          };
-        });
-
-        const protectedIds = new Set(protectedIdeas.map((idea) => idea.id));
-        state.ideas = [
-          ...protectedIdeas,
-          ...imported.filter((idea) => !protectedIds.has(idea.id))
-        ];
+          });
+        }
         renderIdeas();
-        switchTab("ideas");
-        showToast(`Импортировано вариантов: ${imported.length}`);
+        if (selectedImport) renderImportPreview(selectedImport);
+        showToast(`«${lot.name}» перенесено в актуальный лист`);
+      }
+
+      async function applySelectedImport() {
+        if (!selectedImport) return showToast("Сначала выберите импорт");
+        const mode = $("#import-mode").value;
+        await createBackup(`Перед импортом: ${selectedImport.fileName}`);
+
+        const existingByName = new Map(state.ideas.map((idea) => [normalizeName(idea.name), idea]));
+        const importedKeys = new Set(selectedImport.lots.map((lot) => normalizeName(lot.name)));
+
+        if (mode === "add") {
+          selectedImport.lots.forEach((lot) => {
+            const key = normalizeName(lot.name);
+            const existing = existingByName.get(key);
+            if (existing) {
+              existing.amount = Math.max(0, Number(lot.amount) || 0);
+            } else {
+              state.ideas.push({ id: uid(), name: lot.name, amount: Math.max(0, Number(lot.amount) || 0), description: "", status: "roulette", protected: false, image: "", watchUrl: "", modsUrl: "" });
+            }
+          });
+        } else if (mode === "replace") {
+          const preserved = state.ideas.filter((idea) => idea.status !== "roulette" || idea.protected);
+          const preservedKeys = new Set(preserved.map((idea) => normalizeName(idea.name)));
+          const fresh = selectedImport.lots
+            .filter((lot) => !preservedKeys.has(normalizeName(lot.name)))
+            .map((lot) => ({ id: uid(), name: lot.name, amount: Math.max(0, Number(lot.amount) || 0), description: "", status: "roulette", protected: false, image: "", watchUrl: "", modsUrl: "" }));
+          preserved.forEach((idea) => {
+            const lot = selectedImport.lots.find((candidate) => normalizeName(candidate.name) === normalizeName(idea.name));
+            if (lot) idea.amount = Math.max(0, Number(lot.amount) || 0);
+          });
+          state.ideas = [...preserved, ...fresh];
+        } else {
+          // sync: preserve all non-roulette and protected roulette; match the rest to the imported list while keeping metadata for matches
+          const preserved = state.ideas.filter((idea) => idea.status !== "roulette" || idea.protected);
+          const preservedKeys = new Set(preserved.map((idea) => normalizeName(idea.name)));
+          preserved.forEach((idea) => {
+            const lot = selectedImport.lots.find((candidate) => normalizeName(candidate.name) === normalizeName(idea.name));
+            if (lot) idea.amount = Math.max(0, Number(lot.amount) || 0);
+          });
+          const synced = selectedImport.lots
+            .filter((lot) => !preservedKeys.has(normalizeName(lot.name)))
+            .map((lot) => {
+              const previous = existingByName.get(normalizeName(lot.name));
+              if (previous && previous.status === "roulette") {
+                return { ...previous, name: lot.name, amount: Math.max(0, Number(lot.amount) || 0) };
+              }
+              return { id: uid(), name: lot.name, amount: Math.max(0, Number(lot.amount) || 0), description: "", status: "roulette", protected: false, image: "", watchUrl: "", modsUrl: "" };
+            });
+          state.ideas = [...preserved, ...synced];
+        }
+
+        renderIdeas();
+        await saveDraft(true);
+        renderImportPreview(selectedImport);
+        showToast("Импорт применён. Резервная копия создана");
+      }
+
+      async function renderBackupHistory() {
+        const mount = $("#backup-history");
+        const records = (await getAllFromStore(DB_BACKUPS)).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        mount.replaceChildren();
+        if (!records.length) {
+          const empty = document.createElement("div");
+          empty.className = "empty-state";
+          empty.textContent = "Резервных копий пока нет.";
+          mount.append(empty);
+          return;
+        }
+        records.forEach((record) => {
+          const item = document.createElement("div");
+          item.className = "history-item";
+          const info = document.createElement("div");
+          const title = document.createElement("div");
+          title.className = "history-title";
+          title.textContent = record.reason || "Резервная копия";
+          const meta = document.createElement("div");
+          meta.className = "history-meta";
+          meta.textContent = `${formatLocalDate(record.createdAt)} · ${record.state?.ideas?.length || 0} идей`;
+          info.append(title, meta);
+          const restore = document.createElement("button");
+          restore.className = "mini-button";
+          restore.type = "button";
+          restore.textContent = "Восстановить";
+          restore.addEventListener("click", async () => {
+            if (!confirm(`Восстановить версию от ${formatLocalDate(record.createdAt)}? Текущий лист будет заменён.`)) return;
+            state = normalizeContent(record.state);
+            syncStateToForms();
+            renderIdeas();
+            await saveDraft(true);
+            if (selectedImport) renderImportPreview(selectedImport);
+            showToast("Резервная копия восстановлена");
+          });
+          item.append(info, restore);
+          mount.append(item);
+        });
+      }
+
+      function slugify(value) {
+        return String(value || "idea")
+          .toLocaleLowerCase("ru")
+          .normalize("NFKD")
+          .replace(/[^a-zа-яё0-9]+/gi, "-")
+          .replace(/^-+|-+$/g, "")
+          .slice(0, 52) || "idea";
+      }
+
+      function dataUrlToBlob(dataUrl) {
+        const [meta, payload] = String(dataUrl).split(",", 2);
+        const mime = (meta.match(/^data:([^;]+)/) || [])[1] || "image/webp";
+        const binary = atob(payload || "");
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+        return new Blob([bytes], { type: mime });
+      }
+
+      function buildPublishedContent() {
+        syncFormsToState();
+        state.updatedAt = new Date().toISOString();
+        const published = clone(state);
+        const assets = [];
+        published.ideas.forEach((idea, index) => {
+          if (!String(idea.image || "").startsWith("data:image/")) return;
+          const shortId = String(idea.id || index).replace(/[^a-z0-9]/gi, "").slice(-8) || String(index + 1);
+          const relativePath = `images/ideas/${slugify(idea.name)}-${shortId}.webp`;
+          assets.push({ path: relativePath, blob: dataUrlToBlob(idea.image) });
+          idea.image = relativePath;
+        });
+        return { published, assets };
+      }
+
+      async function getOrCreateDirectory(root, parts) {
+        let current = root;
+        for (const part of parts) current = await current.getDirectoryHandle(part, { create: true });
+        return current;
+      }
+
+      async function writeFileHandle(directory, name, data) {
+        const handle = await directory.getFileHandle(name, { create: true });
+        const writable = await handle.createWritable();
+        await writable.write(data);
+        await writable.close();
+      }
+
+      async function publishToGitFolder() {
+        if (!("showDirectoryPicker" in window)) {
+          showToast("Браузер не умеет запись в папку. Используйте Chrome/Edge или скачайте JSON.");
+          return;
+        }
+        try {
+          const root = await window.showDirectoryPicker({ mode: "readwrite", id: "rimafon-git-index" });
+          const { published, assets } = buildPublishedContent();
+          if (assets.length) {
+            const imageDir = await getOrCreateDirectory(root, ["images", "ideas"]);
+            for (const asset of assets) {
+              const name = asset.path.split("/").pop();
+              await writeFileHandle(imageDir, name, asset.blob);
+            }
+          }
+          await writeFileHandle(root, "site-content.json", JSON.stringify(published, null, 2));
+          await saveDraft(true);
+          showToast(`Готово: site-content.json + ${assets.length} WebP в папке Git`);
+        } catch (error) {
+          if (error?.name !== "AbortError") showToast("Не удалось записать файлы в папку Git");
+        }
       }
 
       function exportContent() {
-        syncFormsToState();
-        state.updatedAt = new Date().toISOString();
-        const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json;charset=utf-8" });
+        const { published, assets } = buildPublishedContent();
+        if (assets.length) {
+          showToast("Есть новые фото: для публикации используй «Сохранить в папку Git»");
+          return;
+        }
+        const blob = new Blob([JSON.stringify(published, null, 2)], { type: "application/json;charset=utf-8" });
         const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = url;
@@ -1341,7 +1879,7 @@
         link.click();
         link.remove();
         URL.revokeObjectURL(url);
-        showToast("Файл данных скачан");
+        showToast("site-content.json скачан");
       }
 
       async function initialize() {
@@ -1360,6 +1898,7 @@
         syncStateToForms();
         renderIdeas();
         updateStats();
+        await Promise.all([renderImportHistory(), renderBackupHistory()]);
       }
 
       $$(".tab-button").forEach((button) => button.addEventListener("click", () => switchTab(button.dataset.tab)));
@@ -1376,6 +1915,7 @@
           amount: 0,
           description: "",
           status: "roulette",
+          protected: false,
           image: "",
           watchUrl: "",
           modsUrl: ""
@@ -1389,7 +1929,7 @@
         const file = event.target.files?.[0];
         if (!file) return;
         try {
-          await importPointAuc(file);
+          await saveImportVersion(file);
         } catch (error) {
           showToast(error.message || "Не удалось импортировать PointAuc");
         } finally {
@@ -1404,6 +1944,7 @@
           state = normalizeContent(await readJsonFile(file));
           syncStateToForms();
           renderIdeas();
+          if (selectedImport) renderImportPreview(selectedImport);
           showToast("Файл данных открыт");
         } catch (_) {
           showToast("Не удалось открыть файл данных");
@@ -1419,6 +1960,7 @@
           state = await loadPublished();
           syncStateToForms();
           renderIdeas();
+          if (selectedImport) renderImportPreview(selectedImport);
           showToast("Опубликованные данные загружены");
         } catch (_) {
           state = clone(DEFAULT_CONTENT);
@@ -1428,8 +1970,15 @@
         }
       });
 
+      $("#apply-import-button").addEventListener("click", () => applySelectedImport().catch(() => showToast("Не удалось применить импорт")));
+      $("#close-import-preview").addEventListener("click", () => {
+        selectedImport = null;
+        $("#import-preview").hidden = true;
+      });
+
       $("#save-button").addEventListener("click", () => saveDraft().catch(() => showToast("Не удалось сохранить черновик")));
       $("#export-button").addEventListener("click", exportContent);
+      $("#publish-folder-button").addEventListener("click", publishToGitFolder);
       $("#preview-button").addEventListener("click", async () => {
         try {
           await saveDraft(true);
