@@ -44,9 +44,30 @@
     return html;
   }
 
-  function ideaImage(idea, className) {
+  function optimizedIdeaImage(path, variant) {
+    const value = String(path || "");
+    const match = value.match(/^images\/ideas\/([^/]+\.webp)$/i);
+    if (!match) return value;
+    return `images/ideas/${variant}/${match[1]}`;
+  }
+
+  function ideaImage(idea, className, { thumbnail = false } = {}) {
     if (!idea.image) return "";
-    return `<img class="${className}" src="${escapeHtml(idea.image)}" alt="" loading="lazy" decoding="async" fetchpriority="low">`;
+    const originalSrc = String(idea.image);
+    const src = optimizedIdeaImage(originalSrc, thumbnail ? "thumbs" : "display");
+    const dimensions = thumbnail ? ' width="160" height="160"' : ' width="640" height="640"';
+    const fallback = src === originalSrc ? "" : ` data-original-src="${escapeHtml(originalSrc)}"`;
+    return `<img class="${className}" src="${escapeHtml(src)}"${fallback} alt="" loading="lazy" decoding="async" fetchpriority="low"${dimensions}>`;
+  }
+
+  function enableImageFallbacks() {
+    document.querySelectorAll("img[data-original-src]").forEach((image) => {
+      image.addEventListener("error", () => {
+        const originalSrc = image.dataset.originalSrc;
+        image.removeAttribute("data-original-src");
+        if (originalSrc) image.src = originalSrc;
+      }, { once: true });
+    });
   }
 
   function actionLinks(idea) {
@@ -59,7 +80,7 @@
   function rowCard(idea, { showAmount = false } = {}) {
     const hasImage = Boolean(idea.image);
     return `<article class="idea-row${hasImage ? "" : " idea-row--no-image"}">
-      ${ideaImage(idea, "idea-row__image")}
+      ${ideaImage(idea, "idea-row__image", { thumbnail: true })}
       <div class="idea-row__body">
         <strong>${escapeHtml(idea.name || "Без названия")}</strong>
         ${idea.description ? `<p>${escapeHtml(idea.description)}</p>` : ""}
@@ -159,6 +180,8 @@
       finishedSection.hidden = !finished.length;
       finishedMount.innerHTML = finished.map((idea) => rowCard(idea)).join("");
     }
+
+    enableImageFallbacks();
   }
 
   async function loadDraftPreview() {
