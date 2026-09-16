@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-16T13:59:00Z",
+  "updatedAt": "2026-09-16T14:27:53Z",
   "settings": {
     "seasonLabel": "Римафон · сезон 2",
     "heroTitle": "Вы выбираете следующую колонию",
@@ -41,13 +41,13 @@
   },
   "ideas": [
     {
-      "id": "0c4cf1a7-e9ae-4dd0-9666-86f763b14e41",
-      "name": "Дом 2 Rimworld.",
-      "amount": 35748.0,
-      "description": "Ситком колония, где зрители могут предлагать мне челленджи/задания для выполнения, если я справлюсь, то получу случайную награду, если нет, то негативный ивент",
+      "id": "e8aef57c-a83c-422e-8b4e-6c1b739d6eb3",
+      "name": "Водное DLC (1 КРУТКИ)",
+      "amount": 8749.0,
+      "description": "",
       "status": "current",
-      "protected": true,
-      "image": "images/ideas/0c4cf1a7-e9ae-4dd0-9666-86f763b14e41.webp",
+      "protected": false,
+      "image": "",
       "watchUrl": "",
       "modsUrl": ""
     },
@@ -195,6 +195,17 @@
       "modsUrl": ""
     },
     {
+      "id": "0c4cf1a7-e9ae-4dd0-9666-86f763b14e41",
+      "name": "Дом 2 Rimworld.",
+      "amount": 35748.0,
+      "description": "Ситком колония, где зрители могут предлагать мне челленджи/задания для выполнения, если я справлюсь, то получу случайную награду, если нет, то негативный ивент",
+      "status": "finished",
+      "protected": true,
+      "image": "images/ideas/0c4cf1a7-e9ae-4dd0-9666-86f763b14e41.webp",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
       "id": "765aebbd-f287-4faf-8bb6-65e7ea919912",
       "name": "Rice Isekai (Гоблинская сборка с Уровнями и прокачкой!)",
       "amount": 35045.0,
@@ -286,17 +297,6 @@
       "id": "ec8a531d-6c89-4982-8a26-b6a0d795b8c2",
       "name": "Аниме СБОРКА (1 КРУТКИ)",
       "amount": 11538.0,
-      "description": "",
-      "status": "finished",
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "e8aef57c-a83c-422e-8b4e-6c1b739d6eb3",
-      "name": "Водное DLC (1 КРУТКИ)",
-      "amount": 8749.0,
       "description": "",
       "status": "finished",
       "protected": false,
