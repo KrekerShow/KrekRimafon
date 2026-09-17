@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-16T14:27:53Z",
+  "updatedAt": "2026-09-17T13:42:26Z",
   "settings": {
     "seasonLabel": "Римафон · сезон 2",
     "heroTitle": "Вы выбираете следующую колонию",
@@ -46,6 +46,17 @@
       "amount": 8749.0,
       "description": "",
       "status": "current",
+      "protected": true,
+      "image": "images/ideas/e8aef57c-a83c-422e-8b4e-6c1b739d6eb3.webp",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "a6df73d8-333d-460a-ad37-c8a93c782d43",
+      "name": "Rimworld ТОЛЬКО ОГНЕМЁТЫ (3 КРУТКИ)",
+      "amount": 1550.0,
+      "description": "",
+      "status": "upcoming",
       "protected": false,
       "image": "",
       "watchUrl": "",
@@ -54,7 +65,18 @@
     {
       "id": "idea_0de6fe025b23407fbd4abce4c1c88417",
       "name": "Выходной",
-      "amount": 38888.0,
+      "amount": 41450.0,
+      "description": "",
+      "status": "roulette",
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_fe219fa3276947388fb2eeeae8ba9fe8",
+      "name": "RimToChess (С разными ФРАКЦИЯМИ/МОДАМИ - АНИМЕ ВЕРСИЯ)",
+      "amount": 22000.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -65,7 +87,7 @@
     {
       "id": "idea_3e835d5512fe46b69c3ab102dcedab4d",
       "name": "AYA (3 крутки)",
-      "amount": 11929.0,
+      "amount": 13833.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -109,7 +131,7 @@
     {
       "id": "idea_039a3e0632024a6ab1cfe6ba8bfe8cc3",
       "name": "Пройти RIMWORLD c ЖЕНЕВСКОЙ КОНВЕЦИЕЙ",
-      "amount": 4469.0,
+      "amount": 4717.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -165,17 +187,6 @@
       "id": "idea_8046af417e584892a0a259ff6ce67506",
       "name": "HSK",
       "amount": 756.0,
-      "description": "",
-      "status": "roulette",
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "a6df73d8-333d-460a-ad37-c8a93c782d43",
-      "name": "Rimworld ТОЛЬКО ОГНЕМЁТЫ (3 КРУТКИ)",
-      "amount": 489.0,
       "description": "",
       "status": "roulette",
       "protected": false,
