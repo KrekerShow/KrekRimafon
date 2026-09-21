@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-17T13:42:26Z",
+  "updatedAt": "2026-09-21T13:58:40Z",
   "settings": {
     "seasonLabel": "Римафон · сезон 2",
     "heroTitle": "Вы выбираете следующую колонию",
@@ -41,20 +41,20 @@
   },
   "ideas": [
     {
-      "id": "e8aef57c-a83c-422e-8b4e-6c1b739d6eb3",
-      "name": "Водное DLC (1 КРУТКИ)",
-      "amount": 8749.0,
+      "id": "a6df73d8-333d-460a-ad37-c8a93c782d43",
+      "name": "Rimworld ТОЛЬКО ОГНЕМЁТЫ (3 КРУТКИ)",
+      "amount": 1550.0,
       "description": "",
       "status": "current",
-      "protected": true,
-      "image": "images/ideas/e8aef57c-a83c-422e-8b4e-6c1b739d6eb3.webp",
+      "protected": false,
+      "image": "images/ideas/a6df73d8-333d-460a-ad37-c8a93c782d43.webp",
       "watchUrl": "",
       "modsUrl": ""
     },
     {
-      "id": "a6df73d8-333d-460a-ad37-c8a93c782d43",
-      "name": "Rimworld ТОЛЬКО ОГНЕМЁТЫ (3 КРУТКИ)",
-      "amount": 1550.0,
+      "id": "idea_3e835d5512fe46b69c3ab102dcedab4d",
+      "name": "AYA (2 КРУТКИ)",
+      "amount": 22480.0,
       "description": "",
       "status": "upcoming",
       "protected": false,
@@ -64,8 +64,8 @@
     },
     {
       "id": "idea_0de6fe025b23407fbd4abce4c1c88417",
-      "name": "Выходной",
-      "amount": 41450.0,
+      "name": "Выходной (1 КРУТКА)",
+      "amount": 65897.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -75,8 +75,8 @@
     },
     {
       "id": "idea_fe219fa3276947388fb2eeeae8ba9fe8",
-      "name": "RimToChess (С разными ФРАКЦИЯМИ/МОДАМИ - АНИМЕ ВЕРСИЯ)",
-      "amount": 22000.0,
+      "name": "RimToChess (С разными ФРАКЦИЯМИ/МОДАМИ - АНИМЕ ВЕРСИЯ) (1 КРУТКА)",
+      "amount": 26248.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -85,9 +85,9 @@
       "modsUrl": ""
     },
     {
-      "id": "idea_3e835d5512fe46b69c3ab102dcedab4d",
-      "name": "AYA (3 крутки)",
-      "amount": 13833.0,
+      "id": "idea_8046af417e584892a0a259ff6ce67506",
+      "name": "HSK (1 КРУТКА)",
+      "amount": 15470.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -97,7 +97,7 @@
     },
     {
       "id": "c82269e7-955d-4fac-b7bf-46bf84702bba",
-      "name": "GravShip v2.0 (3 крутки)",
+      "name": "GravShip v2.0 (1 КРУТКА)",
       "amount": 9753.0,
       "description": "",
       "status": "roulette",
@@ -108,8 +108,8 @@
     },
     {
       "id": "idea_7dd6d02510804149b072e8f4e5cd938a",
-      "name": "Регулярные аномалии, туман войны, ивенты без оповещений",
-      "amount": 5554.0,
+      "name": "Регулярные аномалии, туман войны, ивенты без оповещений (2 КРУТКИ)",
+      "amount": 7455.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -119,7 +119,7 @@
     },
     {
       "id": "5b499124-121f-44a5-9f1c-0068345f5ad6",
-      "name": "КОЛОНИЯ АССАСИНОВ (3 крутки) - Цель собрать все артефакты предтечи, они у боссов",
+      "name": "КОЛОНИЯ АССАСИНОВ (1 крутки) - Цель собрать все артефакты предтечи, они у боссов",
       "amount": 5245.0,
       "description": "",
       "status": "roulette",
@@ -130,8 +130,8 @@
     },
     {
       "id": "idea_039a3e0632024a6ab1cfe6ba8bfe8cc3",
-      "name": "Пройти RIMWORLD c ЖЕНЕВСКОЙ КОНВЕЦИЕЙ",
-      "amount": 4717.0,
+      "name": "Пройти RIMWORLD c ЖЕНЕВСКОЙ КОНВЕЦИЕЙ (2 КРУТКИ)",
+      "amount": 4965.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -141,19 +141,8 @@
     },
     {
       "id": "idea_cd1ba0729b8546f6b099fbc2b02064b4",
-      "name": "МИР ЖУКОВ (3 КРУТКИ)",
-      "amount": 1987.0,
-      "description": "",
-      "status": "roulette",
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_938e18f8e9a24070a4559e401fc0bb64",
-      "name": "РЕГУЛЯРНЫЕ АНОМАЛИИ",
-      "amount": 1901.0,
+      "name": "МИР ЖУКОВ (2 КРУТКИ)",
+      "amount": 2135.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -163,8 +152,8 @@
     },
     {
       "id": "6cc7b0c7-90e3-4764-a558-a38618491c22",
-      "name": "Исследователь руин, поставь мод RimExodus — Seamless World и моды на разные локации и путешествуй (3 КРУТКИ)",
-      "amount": 1574.0,
+      "name": "Исследователь руин, поставь мод RimExodus — Seamless World и моды на разные локации и путешествуй (1 КРУТКИ)",
+      "amount": 1735.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -174,7 +163,7 @@
     },
     {
       "id": "idea_65caa794bc5e4bbd819b77f8ca535a6a",
-      "name": "Мод, Neurax (Активный вирус колония) - Plague Inc (3 крутки)",
+      "name": "Мод, Neurax (Активный вирус колония) - Plague Inc (2 КРУТКИ)",
       "amount": 800.0,
       "description": "",
       "status": "roulette",
@@ -184,19 +173,8 @@
       "modsUrl": ""
     },
     {
-      "id": "idea_8046af417e584892a0a259ff6ce67506",
-      "name": "HSK",
-      "amount": 756.0,
-      "description": "",
-      "status": "roulette",
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_e48a5a291c6642f5bacbae51314eacbd",
-      "name": "rimtochess (3 крутки)",
+      "id": "idea_fe76af6aee3548cfb506d2084f6f948c",
+      "name": "Колония Детдом. Цель воспитать и вырастить сколько то детей. Детей нельзя будет держать в подвале и не кормить, детей можно эксплуатировать, но за не залеченные травмы и потерянные конечности у детей штраф, за гибель детей приходит органы опеки x1. Раз несколько дней приходит проверка и проверяет условия жизни у детей, за плохие штраф за хорошие бонусы. (2 КРУТКИ)",
       "amount": 248.0,
       "description": "",
       "status": "roulette",
@@ -312,6 +290,17 @@
       "status": "finished",
       "protected": false,
       "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "e8aef57c-a83c-422e-8b4e-6c1b739d6eb3",
+      "name": "Водное DLC (1 КРУТКИ)",
+      "amount": 8749.0,
+      "description": "",
+      "status": "finished",
+      "protected": true,
+      "image": "images/ideas/e8aef57c-a83c-422e-8b4e-6c1b739d6eb3.webp",
       "watchUrl": "",
       "modsUrl": ""
     },
