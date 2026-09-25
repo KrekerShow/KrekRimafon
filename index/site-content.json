@@ -1,16 +1,16 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-21T13:58:40Z",
+  "updatedAt": "2026-09-25T12:22:12Z",
   "settings": {
-    "seasonLabel": "Римафон · сезон 2",
-    "heroTitle": "Вы выбираете следующую колонию",
-    "heroDescription": "Предлагайте идеи для прохождения RimWorld. Они попадают в общую рулетку, а выбранные варианты становятся новыми форматами стримов. Каждый раз когда выполняется ЦЕЛЬ ПО ДОНАТАМ добавляем ещё один ежедневный стрим. Римафон это формат в котором стримы идут каждый день, приоритет Rimworld, но иногда могут быть другие игры/коллаборации!",
     "donationMin": 100,
-    "streamTarget": 17500,
+    "heroDescription": "Предлагайте идеи для прохождения RimWorld. Они попадают в общую рулетку, а выбранные варианты становятся новыми форматами стримов. Каждый раз когда выполняется ЦЕЛЬ ПО ДОНАТАМ добавляем ещё один ежедневный стрим. Римафон это формат в котором стримы идут каждый день, приоритет Rimworld, но иногда могут быть другие игры/коллаборации!",
+    "heroTitle": "Вы выбираете следующую колонию",
+    "schedule": "Стримы проходят каждый день и длятся минимум три часа.",
+    "seasonLabel": "Римафон · сезон 2",
+    "streamTarget": 21500,
     "streamTargetStep": 250,
     "weekdaysTime": "17:00",
-    "weekendTime": "15:00",
-    "schedule": "Стримы проходят каждый день и длятся минимум три часа."
+    "weekendTime": "15:00"
   },
   "rules": {
     "adding": [
@@ -31,30 +31,30 @@
       "Правила могут уточняться по ходу сезона, если это необходимо для подготовки или честного проведения."
     ],
     "formatsNote": "Для подготовки заранее выбираются две - три ближайшие идеи. Между форматами возможны коллаборации или технические стримы со сборками.",
-    "newGameTitle": "Лот «Новая игра»",
-    "newGameIntro": "В рулетку можно добавить специальный лот. Если он выпадет, вне основного расписания пройдёт отдельный выбор новой игры с участием чата и донатов.",
     "newGame": [
       "ДАННЫЙ ЛОТ БЫЛ УСПЕШНО ПОЛУЧЕН!!!",
       "Если будет огромное желание чата и успех выпавшей игры, то данный лот вновь вернётся в аук!"
     ],
-    "newGameNote": "Выпадение лота запускает выбор новой игры, но не гарантирует автоматический запуск конкретной игры, указанной в донате."
+    "newGameIntro": "В рулетку можно добавить специальный лот. Если он выпадет, вне основного расписания пройдёт отдельный выбор новой игры с участием чата и донатов.",
+    "newGameNote": "Выпадение лота запускает выбор новой игры, но не гарантирует автоматический запуск конкретной игры, указанной в донате.",
+    "newGameTitle": "Лот «Новая игра»"
   },
   "ideas": [
     {
-      "id": "a6df73d8-333d-460a-ad37-c8a93c782d43",
-      "name": "Rimworld ТОЛЬКО ОГНЕМЁТЫ (3 КРУТКИ)",
-      "amount": 1550.0,
+      "id": "idea_3e835d5512fe46b69c3ab102dcedab4d",
+      "name": "AYA",
+      "amount": 22480.0,
       "description": "",
       "status": "current",
       "protected": false,
-      "image": "images/ideas/a6df73d8-333d-460a-ad37-c8a93c782d43.webp",
+      "image": "",
       "watchUrl": "",
       "modsUrl": ""
     },
     {
-      "id": "idea_3e835d5512fe46b69c3ab102dcedab4d",
-      "name": "AYA (2 КРУТКИ)",
-      "amount": 22480.0,
+      "id": "idea_7dd6d02510804149b072e8f4e5cd938a",
+      "name": "Регулярные аномалии, туман войны, ивенты без оповещений",
+      "amount": 14892.0,
       "description": "",
       "status": "upcoming",
       "protected": false,
@@ -63,75 +63,20 @@
       "modsUrl": ""
     },
     {
-      "id": "idea_0de6fe025b23407fbd4abce4c1c88417",
-      "name": "Выходной (1 КРУТКА)",
-      "amount": 65897.0,
-      "description": "",
-      "status": "roulette",
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_fe219fa3276947388fb2eeeae8ba9fe8",
-      "name": "RimToChess (С разными ФРАКЦИЯМИ/МОДАМИ - АНИМЕ ВЕРСИЯ) (1 КРУТКА)",
-      "amount": 26248.0,
-      "description": "",
-      "status": "roulette",
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_8046af417e584892a0a259ff6ce67506",
-      "name": "HSK (1 КРУТКА)",
-      "amount": 15470.0,
-      "description": "",
-      "status": "roulette",
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "c82269e7-955d-4fac-b7bf-46bf84702bba",
-      "name": "GravShip v2.0 (1 КРУТКА)",
-      "amount": 9753.0,
-      "description": "",
-      "status": "roulette",
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_7dd6d02510804149b072e8f4e5cd938a",
-      "name": "Регулярные аномалии, туман войны, ивенты без оповещений (2 КРУТКИ)",
-      "amount": 7455.0,
-      "description": "",
-      "status": "roulette",
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "5b499124-121f-44a5-9f1c-0068345f5ad6",
-      "name": "КОЛОНИЯ АССАСИНОВ (1 крутки) - Цель собрать все артефакты предтечи, они у боссов",
-      "amount": 5245.0,
-      "description": "",
-      "status": "roulette",
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
       "id": "idea_039a3e0632024a6ab1cfe6ba8bfe8cc3",
-      "name": "Пройти RIMWORLD c ЖЕНЕВСКОЙ КОНВЕЦИЕЙ (2 КРУТКИ)",
-      "amount": 4965.0,
+      "name": "Пройти RIMWORLD c ЖЕНЕВСКОЙ КОНВЕЦИЕЙ (1 КРУТКИ)",
+      "amount": 23257.0,
+      "description": "",
+      "status": "roulette",
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_433973f6502242748947d52b34cfd0ec",
+      "name": "HSK v2.0 (3 КРУТКИ)",
+      "amount": 9259.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -141,8 +86,8 @@
     },
     {
       "id": "idea_cd1ba0729b8546f6b099fbc2b02064b4",
-      "name": "МИР ЖУКОВ (2 КРУТКИ)",
-      "amount": 2135.0,
+      "name": "МИР ЖУКОВ (1 КРУТКИ)",
+      "amount": 8005.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -151,20 +96,9 @@
       "modsUrl": ""
     },
     {
-      "id": "6cc7b0c7-90e3-4764-a558-a38618491c22",
-      "name": "Исследователь руин, поставь мод RimExodus — Seamless World и моды на разные локации и путешествуй (1 КРУТКИ)",
-      "amount": 1735.0,
-      "description": "",
-      "status": "roulette",
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_65caa794bc5e4bbd819b77f8ca535a6a",
-      "name": "Мод, Neurax (Активный вирус колония) - Plague Inc (2 КРУТКИ)",
-      "amount": 800.0,
+      "id": "idea_7e7ecf29e1b8479c9767a88b49b1bae4",
+      "name": "Выходной v2.0 (3 Крутки)",
+      "amount": 6228.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -174,8 +108,41 @@
     },
     {
       "id": "idea_fe76af6aee3548cfb506d2084f6f948c",
-      "name": "Колония Детдом. Цель воспитать и вырастить сколько то детей. Детей нельзя будет держать в подвале и не кормить, детей можно эксплуатировать, но за не залеченные травмы и потерянные конечности у детей штраф, за гибель детей приходит органы опеки x1. Раз несколько дней приходит проверка и проверяет условия жизни у детей, за плохие штраф за хорошие бонусы. (2 КРУТКИ)",
+      "name": "Колония Детдом. Цель воспитать и вырастить сколько то детей. Детей нельзя будет держать в подвале и не кормить, детей можно эксплуатировать, но за не залеченные травмы и потерянные конечности у детей штраф, за гибель детей приходит органы опеки x1. Раз несколько дней приходит проверка и проверяет условия жизни у детей, за плохие штраф за хорошие бонусы. (1 КРУТКИ)",
+      "amount": 5848.0,
+      "description": "",
+      "status": "roulette",
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_65caa794bc5e4bbd819b77f8ca535a6a",
+      "name": "Мод, Neurax (Активный вирус колония) - Plague Inc (1 КРУТКИ)",
+      "amount": 800.0,
+      "description": "",
+      "status": "roulette",
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_8b1120d20ab64276b6ba598caa016439",
+      "name": "Коровки v2.0 Дань в виде молока коровок!",
       "amount": 248.0,
+      "description": "",
+      "status": "roulette",
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_6ae2a25a6aa3469193eaf383606cfe9f",
+      "name": "Колония в которой урон могут наносить только псикастеры с ванилла псикаст экспандед (понерфи ледяной луч) (3 КРУТКИ)",
+      "amount": 200.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -400,6 +367,17 @@
       "status": "finished",
       "protected": false,
       "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "a6df73d8-333d-460a-ad37-c8a93c782d43",
+      "name": "Rimworld ТОЛЬКО ОГНЕМЁТЫ (3 КРУТКИ)",
+      "amount": 1550.0,
+      "description": "",
+      "status": "finished",
+      "protected": false,
+      "image": "images/ideas/a6df73d8-333d-460a-ad37-c8a93c782d43.webp",
       "watchUrl": "",
       "modsUrl": ""
     },
