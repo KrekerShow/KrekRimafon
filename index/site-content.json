@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-25T12:31:18Z",
+  "updatedAt": "2026-09-28T13:56:19Z",
   "settings": {
     "donationMin": 100,
     "heroDescription": "Предлагайте идеи для прохождения RimWorld. Они попадают в общую рулетку, а выбранные варианты становятся новыми форматами стримов. Каждый раз когда выполняется ЦЕЛЬ ПО ДОНАТАМ добавляем ещё один ежедневный стрим. Римафон это формат в котором стримы идут каждый день, приоритет Rimworld, но иногда могут быть другие игры/коллаборации!",
@@ -41,9 +41,9 @@
   },
   "ideas": [
     {
-      "id": "idea_3e835d5512fe46b69c3ab102dcedab4d",
-      "name": "AYA",
-      "amount": 22480.0,
+      "id": "idea_7dd6d02510804149b072e8f4e5cd938a",
+      "name": "Регулярные аномалии, туман войны, ивенты без оповещений",
+      "amount": 14892.0,
       "description": "",
       "status": "current",
       "protected": false,
@@ -52,9 +52,9 @@
       "modsUrl": ""
     },
     {
-      "id": "idea_7dd6d02510804149b072e8f4e5cd938a",
-      "name": "Регулярные аномалии, туман войны, ивенты без оповещений",
-      "amount": 14892.0,
+      "id": "idea_7e7ecf29e1b8479c9767a88b49b1bae4",
+      "name": "Выходной v2.0 (2 Крутки)",
+      "amount": 31619.0,
       "description": "",
       "status": "upcoming",
       "protected": false,
@@ -63,20 +63,9 @@
       "modsUrl": ""
     },
     {
-      "id": "idea_039a3e0632024a6ab1cfe6ba8bfe8cc3",
-      "name": "Пройти RIMWORLD c ЖЕНЕВСКОЙ КОНВЕЦИЕЙ (1 КРУТКИ)",
-      "amount": 23257.0,
-      "description": "",
-      "status": "roulette",
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
       "id": "idea_433973f6502242748947d52b34cfd0ec",
-      "name": "HSK v2.0 (3 КРУТКИ)",
-      "amount": 9259.0,
+      "name": "HSK v2.0 (2 КРУТКИ)",
+      "amount": 28206.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -85,42 +74,9 @@
       "modsUrl": ""
     },
     {
-      "id": "idea_cd1ba0729b8546f6b099fbc2b02064b4",
-      "name": "МИР ЖУКОВ (1 КРУТКИ)",
-      "amount": 8005.0,
-      "description": "",
-      "status": "roulette",
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_7e7ecf29e1b8479c9767a88b49b1bae4",
-      "name": "Выходной v2.0 (3 Крутки)",
-      "amount": 6228.0,
-      "description": "",
-      "status": "roulette",
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_fe76af6aee3548cfb506d2084f6f948c",
-      "name": "Колония Детдом. Цель воспитать и вырастить сколько то детей. Детей нельзя будет держать в подвале и не кормить, детей можно эксплуатировать, но за не залеченные травмы и потерянные конечности у детей штраф, за гибель детей приходит органы опеки x1. Раз несколько дней приходит проверка и проверяет условия жизни у детей, за плохие штраф за хорошие бонусы. (1 КРУТКИ)",
-      "amount": 5848.0,
-      "description": "",
-      "status": "roulette",
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_65caa794bc5e4bbd819b77f8ca535a6a",
-      "name": "Мод, Neurax (Активный вирус колония) - Plague Inc (1 КРУТКИ)",
-      "amount": 800.0,
+      "id": "idea_d09528f49edb4ee786785becc2ee4dd9",
+      "name": "\"Колония с модом на чужих\" (2 Крутки)",
+      "amount": 8490.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -130,8 +86,8 @@
     },
     {
       "id": "idea_8b1120d20ab64276b6ba598caa016439",
-      "name": "Коровки v2.0 Дань в виде молока коровок!",
-      "amount": 248.0,
+      "name": "Коровки v2.0 Дань в виде молока коровок! (2 Крутки)",
+      "amount": 2890.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -141,7 +97,7 @@
     },
     {
       "id": "idea_6ae2a25a6aa3469193eaf383606cfe9f",
-      "name": "Колония в которой урон могут наносить только псикастеры с ванилла псикаст экспандед (понерфи ледяной луч) (3 КРУТКИ)",
+      "name": "Колония в которой урон могут наносить только псикастеры с ванилла псикаст экспандед (понерфи ледяной луч) (2 КРУТКИ)",
       "amount": 200.0,
       "description": "",
       "status": "roulette",
@@ -169,6 +125,17 @@
       "status": "finished",
       "protected": true,
       "image": "images/ideas/765aebbd-f287-4faf-8bb6-65e7ea919912.webp",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_3e835d5512fe46b69c3ab102dcedab4d",
+      "name": "AYA",
+      "amount": 22480.0,
+      "description": "",
+      "status": "finished",
+      "protected": false,
+      "image": "",
       "watchUrl": "",
       "modsUrl": ""
     },
