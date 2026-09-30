@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-28T13:56:19Z",
+  "updatedAt": "2026-09-30T13:36:29Z",
   "settings": {
     "donationMin": 100,
     "heroDescription": "Предлагайте идеи для прохождения RimWorld. Они попадают в общую рулетку, а выбранные варианты становятся новыми форматами стримов. Каждый раз когда выполняется ЦЕЛЬ ПО ДОНАТАМ добавляем ещё один ежедневный стрим. Римафон это формат в котором стримы идут каждый день, приоритет Rimworld, но иногда могут быть другие игры/коллаборации!",
     "heroTitle": "Вы выбираете следующую колонию",
     "schedule": "Стримы проходят каждый день и длятся минимум три часа.",
     "seasonLabel": "Римафон · сезон 2",
-    "streamTarget": 21500,
-    "streamTargetStep": 250,
+    "streamTarget": 22750,
+    "streamTargetStep": 500,
     "weekdaysTime": "17:00",
     "weekendTime": "15:00"
   },
@@ -65,7 +65,18 @@
     {
       "id": "idea_433973f6502242748947d52b34cfd0ec",
       "name": "HSK v2.0 (2 КРУТКИ)",
-      "amount": 28206.0,
+      "amount": 52551.0,
+      "description": "",
+      "status": "roulette",
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_8b1120d20ab64276b6ba598caa016439",
+      "name": "Коровки - ДЕВУШКИ v2.0 Дань в виде молока коровок! (2 Крутки)",
+      "amount": 10549.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -76,7 +87,7 @@
     {
       "id": "idea_d09528f49edb4ee786785becc2ee4dd9",
       "name": "\"Колония с модом на чужих\" (2 Крутки)",
-      "amount": 8490.0,
+      "amount": 10205.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -85,9 +96,20 @@
       "modsUrl": ""
     },
     {
-      "id": "idea_8b1120d20ab64276b6ba598caa016439",
-      "name": "Коровки v2.0 Дань в виде молока коровок! (2 Крутки)",
-      "amount": 2890.0,
+      "id": "idea_927aa81840f14b0a883cb64b5c218923",
+      "name": "Римворлд с ЖЕНЕВСКОЙ КОНВЕНЦИЕЙ v2.0",
+      "amount": 3024.0,
+      "description": "",
+      "status": "roulette",
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_27c105d790244ec182ae4d4e3bc84f02",
+      "name": "Средневековье с магией (3 КРУТКИ)",
+      "amount": 695.0,
       "description": "",
       "status": "roulette",
       "protected": false,
@@ -98,7 +120,7 @@
     {
       "id": "idea_6ae2a25a6aa3469193eaf383606cfe9f",
       "name": "Колония в которой урон могут наносить только псикастеры с ванилла псикаст экспандед (понерфи ледяной луч) (2 КРУТКИ)",
-      "amount": 200.0,
+      "amount": 494.0,
       "description": "",
       "status": "roulette",
       "protected": false,
