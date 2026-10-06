@@ -7,6 +7,16 @@
   })[char]);
 
   const formatMoney = (value) => `${Math.max(0, Number(value) || 0).toLocaleString("ru-RU")} ₽`;
+  const spinsRemaining = (idea) => {
+    const marked = String(idea?.name || "").match(/\((\d{1,2})\s*крут/i);
+    const legacy = marked ? Number(marked[1]) : 3;
+    return Math.max(0, Math.min(99, Number.isFinite(Number(idea?.spinsRemaining)) && idea?.spinsRemaining !== undefined && idea?.spinsRemaining !== null ? Number(idea.spinsRemaining) : legacy));
+  };
+  const spinsText = (idea) => {
+    const count = spinsRemaining(idea);
+    const word = count % 10 === 1 && count % 100 !== 11 ? "крутка" : [2, 3, 4].includes(count % 10) && ![12, 13, 14].includes(count % 100) ? "крутки" : "круток";
+    return count ? `Осталось ${count} ${word}` : "0 круток · выбыла";
+  };
   const compactMoney = (value) => {
     const amount = Math.max(0, Number(value) || 0);
     if (amount >= 1000 && amount % 1000 === 0) return `${amount / 1000}К`;
@@ -77,14 +87,14 @@
     return links.join(" ");
   }
 
-  function rowCard(idea, { showAmount = false } = {}) {
+  function rowCard(idea, { showAmount = false, showSpins = false } = {}) {
     const hasImage = Boolean(idea.image);
-    return `<article class="idea-row${hasImage ? "" : " idea-row--no-image"}">
+    return `<article class="idea-row${hasImage ? "" : " idea-row--no-image"}${showSpins && !spinsRemaining(idea) ? " idea-row--exhausted" : ""}">
       ${ideaImage(idea, "idea-row__image", { thumbnail: true })}
       <div class="idea-row__body">
         <strong>${escapeHtml(idea.name || "Без названия")}</strong>
         ${idea.description ? `<p>${escapeHtml(idea.description)}</p>` : ""}
-        ${showAmount ? `<span class="idea-amount">${formatMoney(idea.amount)}</span>` : ""}
+        ${showAmount || showSpins ? `<div class="idea-row__meta">${showAmount ? `<span class="idea-amount">${formatMoney(idea.amount)}</span>` : ""}${showSpins ? `<span class="idea-spins${spinsRemaining(idea) ? "" : " idea-spins--empty"}" aria-label="${escapeHtml(spinsText(idea))}">${spinsText(idea)}</span>` : ""}</div>` : ""}
         ${actionLinks(idea)}
       </div>
     </article>`;
@@ -137,11 +147,12 @@
 
     const current = ideas.find((idea) => idea.status === "current");
     const upcoming = ideas.filter((idea) => idea.status === "upcoming");
-    const roulette = ideas.filter((idea) => idea.status === "roulette").sort((a, b) => (Number(b.amount) || 0) - (Number(a.amount) || 0));
+    const roulette = ideas.filter((idea) => idea.status === "roulette").sort((a, b) => Number(spinsRemaining(b) > 0) - Number(spinsRemaining(a) > 0) || (Number(b.amount) || 0) - (Number(a.amount) || 0));
+    const activeRoulette = roulette.filter((idea) => spinsRemaining(idea) > 0);
     const finished = ideas.filter((idea) => idea.status === "finished");
 
-    setText("#hero-ideas-count", roulette.length);
-    setText("#possible-count", roulette.length);
+    setText("#hero-ideas-count", activeRoulette.length);
+    setText("#possible-count", activeRoulette.length);
     setText("#hero-colonies-count", upcoming.length + (current ? 1 : 0));
     setText("#upcoming-count", upcoming.length);
     setText("#finished-count", finished.length);
@@ -167,7 +178,7 @@
     if (rouletteMount) {
       if (roulette.length) {
         rouletteMount.className = "ideas-list";
-        rouletteMount.innerHTML = roulette.map((idea) => rowCard(idea, { showAmount: true })).join("");
+        rouletteMount.innerHTML = roulette.map((idea) => rowCard(idea, { showAmount: true, showSpins: true })).join("");
       } else {
         rouletteMount.className = "queue-empty ideas-list";
         rouletteMount.textContent = "Сейчас в рулетке нет идей.";

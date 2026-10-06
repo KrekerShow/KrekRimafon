@@ -1033,6 +1033,12 @@
         return String(value || "").trim().replace(/\s+/g, " ").toLocaleLowerCase("ru");
       }
 
+      function ideaSpins(idea) {
+        const legacy = String(idea.name || "").match(/\((\d{1,2})\s*крут/i);
+        const value = idea.spinsRemaining ?? (legacy ? Number(legacy[1]) : 3);
+        return Math.max(0, Math.min(99, Math.floor(Number(value) || 0)));
+      }
+
       function normalizeContent(value) {
         const content = value && typeof value === "object" ? value : {};
         const settings = content.settings && typeof content.settings === "object" ? content.settings : {};
@@ -1068,6 +1074,7 @@
                 id: String(idea.id || uid()),
                 name: String(idea.name || idea.title || "Без названия"),
                 amount: Math.max(0, Number(idea.amount) || 0),
+                spinsRemaining: ideaSpins(idea),
                 description: String(idea.description || idea.desc || ""),
                 status: ["roulette", "current", "upcoming", "finished", "hidden"].includes(idea.status) ? idea.status : "roulette",
                 protected: Boolean(idea.protected) || ["current", "upcoming", "finished"].includes(idea.status),
@@ -1373,6 +1380,7 @@
           metaGrid.className = "idea-meta-grid";
           metaGrid.append(
             makeField("Сумма, ₽", makeInput(idea.amount, "amount", "number")),
+            makeField("Осталось круток", makeInput(idea.spinsRemaining, "spinsRemaining", "number")),
             makeField("Ссылка на запись", makeInput(idea.watchUrl, "watchUrl", "url")),
             makeField("Ссылка на моды", makeInput(idea.modsUrl, "modsUrl", "url"))
           );
@@ -1464,6 +1472,8 @@
         if (!field) return;
         if (field === "amount") {
           idea[field] = Math.max(0, Number(event.target.value) || 0);
+        } else if (field === "spinsRemaining") {
+          idea.spinsRemaining = Math.max(0, Math.min(99, Math.floor(Number(event.target.value) || 0)));
         } else if (field === "protected") {
           idea.protected = Boolean(event.target.checked);
         } else {
@@ -1689,6 +1699,7 @@
             amount: Math.max(0, Number(lot.amount) || 0),
             description: "",
             status: "roulette",
+            spinsRemaining: 3,
             protected: false,
             image: "",
             watchUrl: "",
@@ -1715,7 +1726,7 @@
             if (existing) {
               existing.amount = Math.max(0, Number(lot.amount) || 0);
             } else {
-              state.ideas.push({ id: uid(), name: lot.name, amount: Math.max(0, Number(lot.amount) || 0), description: "", status: "roulette", protected: false, image: "", watchUrl: "", modsUrl: "" });
+              state.ideas.push({ id: uid(), name: lot.name, amount: Math.max(0, Number(lot.amount) || 0), description: "", status: "roulette", spinsRemaining: 3, protected: false, image: "", watchUrl: "", modsUrl: "" });
             }
           });
         } else if (mode === "replace") {
@@ -1723,7 +1734,7 @@
           const preservedKeys = new Set(preserved.map((idea) => normalizeName(idea.name)));
           const fresh = selectedImport.lots
             .filter((lot) => !preservedKeys.has(normalizeName(lot.name)))
-            .map((lot) => ({ id: uid(), name: lot.name, amount: Math.max(0, Number(lot.amount) || 0), description: "", status: "roulette", protected: false, image: "", watchUrl: "", modsUrl: "" }));
+            .map((lot) => ({ id: uid(), name: lot.name, amount: Math.max(0, Number(lot.amount) || 0), description: "", status: "roulette", spinsRemaining: 3, protected: false, image: "", watchUrl: "", modsUrl: "" }));
           preserved.forEach((idea) => {
             const lot = selectedImport.lots.find((candidate) => normalizeName(candidate.name) === normalizeName(idea.name));
             if (lot) idea.amount = Math.max(0, Number(lot.amount) || 0);
@@ -1744,7 +1755,7 @@
               if (previous && previous.status === "roulette") {
                 return { ...previous, name: lot.name, amount: Math.max(0, Number(lot.amount) || 0) };
               }
-              return { id: uid(), name: lot.name, amount: Math.max(0, Number(lot.amount) || 0), description: "", status: "roulette", protected: false, image: "", watchUrl: "", modsUrl: "" };
+              return { id: uid(), name: lot.name, amount: Math.max(0, Number(lot.amount) || 0), description: "", status: "roulette", spinsRemaining: 3, protected: false, image: "", watchUrl: "", modsUrl: "" };
             });
           state.ideas = [...preserved, ...synced];
         }
@@ -1915,6 +1926,7 @@
           amount: 0,
           description: "",
           status: "roulette",
+          spinsRemaining: 3,
           protected: false,
           image: "",
           watchUrl: "",

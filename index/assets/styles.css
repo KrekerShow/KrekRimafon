@@ -796,6 +796,46 @@
         font-weight: 800;
       }
 
+      .pool-explainer {
+        margin: -9px 0 17px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .idea-row__meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 7px;
+        margin-top: 8px;
+      }
+
+      .idea-row__meta .idea-amount { margin-top: 0; }
+
+      .idea-spins {
+        display: inline-flex;
+        align-items: center;
+        min-height: 26px;
+        padding: 5px 9px;
+        border: 1px solid rgba(166, 196, 218, .4);
+        border-radius: 999px;
+        background: rgba(93, 133, 163, .15);
+        color: #d8eaf6 !important;
+        font-size: 11px !important;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .idea-spins--empty {
+        border-color: rgba(236, 152, 143, .38);
+        background: rgba(160, 74, 68, .14);
+        color: #edb7b0 !important;
+      }
+
+      .idea-row--exhausted { opacity: .62; }
+      .idea-row--exhausted .idea-row__body > strong { text-decoration: line-through; }
+
       /* Заметные кнопки "Смотреть" во всех карточках колоний */
       .current-idea__body a[href],
       #upcoming-list a[href],
