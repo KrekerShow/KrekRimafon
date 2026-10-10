@@ -699,6 +699,50 @@
         overflow-y: auto;
       }
 
+      .queue-card--donations {
+        background: rgba(244, 111, 36, 0.045);
+      }
+
+      .unallocated-list {
+        display: grid;
+        max-height: 300px;
+        gap: 7px;
+        overflow-y: auto;
+      }
+
+      .unallocated-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        background: rgba(255, 255, 255, 0.035);
+        font-size: 13px;
+      }
+
+      .unallocated-row__name {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .unallocated-row strong {
+        flex: none;
+        color: var(--amber);
+        white-space: nowrap;
+      }
+
+      .unallocated-row--anonymous {
+        opacity: 0.7;
+      }
+
+      .unallocated-updated {
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
       .current-idea {
         display: grid;
         min-height: 380px;

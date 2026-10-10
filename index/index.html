@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles.css?v=20261006-1">
+    <link rel="stylesheet" href="assets/styles.css?v=20261009-1">
   </head>
   <body>
     <header class="site-header">
@@ -185,6 +185,16 @@
                 <p class="pool-explainer">У новой идеи 3 крутки. После каждого ивента остаётся на одну меньше; на нуле идея выбывает.</p>
                 <div class="queue-empty ideas-list" id="possible-list">Новый сезон начинается с нуля.</div>
               </section>
+
+              <section class="queue-card queue-card--donations reveal" id="unallocated-section" aria-labelledby="unallocated-title" hidden>
+                <div class="queue-card__head">
+                  <h3 id="unallocated-title">Донаты без идеи</h3>
+                  <span class="count" id="unallocated-count">0</span>
+                </div>
+                <p class="pool-explainer">Если ваш донат здесь, напишите на стриме, в какую идею его отправить. Список обновляется после выгрузки данных из виджета.</p>
+                <div class="unallocated-list" id="unallocated-list"></div>
+                <p class="unallocated-updated" id="unallocated-updated"></p>
+              </section>
             </aside>
           </div>
         </div>
@@ -308,6 +318,6 @@
 
     <a class="mobile-cta" href="https://www.donationalerts.com/r/krekeros" target="_blank" rel="noopener noreferrer">+ Добавить идею</a>
     <script src="assets/app.js?v=20260824-1" defer></script>
-    <script src="content-loader.js?v=20261006-1" defer></script>
+    <script src="content-loader.js?v=20261009-1" defer></script>
   </body>
 </html>

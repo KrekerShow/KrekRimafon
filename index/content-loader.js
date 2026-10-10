@@ -185,6 +185,22 @@
       }
     }
 
+    const unallocatedSection = $("#unallocated-section");
+    const unallocatedMount = $("#unallocated-list");
+    if (unallocatedSection && unallocatedMount) {
+      const donors = (Array.isArray(content?.unallocatedDonors) ? content.unallocatedDonors : [])
+        .filter((donor) => Number(donor?.amount) > 0)
+        .sort((a, b) => Number(b.amount) - Number(a.amount));
+      const anonymous = content?.unallocatedAnonymous || {};
+      const anonymousAmount = Math.max(0, Number(anonymous.amount) || 0);
+      unallocatedSection.hidden = !donors.length && !anonymousAmount;
+      setText("#unallocated-count", donors.length);
+      unallocatedMount.innerHTML = donors.map((donor) => `<div class="unallocated-row"><span class="unallocated-row__name" title="${escapeHtml(donor.name || "Донатер")}">${escapeHtml(donor.name || "Донатер")}</span><strong>${formatMoney(donor.amount)}</strong></div>`).join("")
+        + (anonymousAmount ? `<div class="unallocated-row unallocated-row--anonymous"><span class="unallocated-row__name">Анонимные донаты</span><strong>${formatMoney(anonymousAmount)}</strong></div>` : "");
+      const updated = content?.unallocatedUpdatedAt ? new Date(content.unallocatedUpdatedAt) : null;
+      setText("#unallocated-updated", updated && !Number.isNaN(updated.getTime()) ? `Данные на ${updated.toLocaleString("ru-RU", { dateStyle: "short", timeStyle: "short" })}` : "");
+    }
+
     const finishedSection = $("#finished");
     const finishedMount = $("#finished-list");
     if (finishedSection && finishedMount) {

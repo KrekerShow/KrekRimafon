@@ -1,6 +1,7 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-06T13:55:10Z",
+  "updatedAt": "2026-10-10T10:33:30Z",
+  "unallocatedUpdatedAt": "2026-10-10T10:33:30Z",
   "settings": {
     "donationMin": 100,
     "heroDescription": "Предлагайте идеи для прохождения RimWorld. Они попадают в общую рулетку, а выбранные варианты становятся новыми форматами стримов. Каждый раз когда выполняется ЦЕЛЬ ПО ДОНАТАМ добавляем ещё один ежедневный стрим. Римафон это формат в котором стримы идут каждый день, приоритет Rimworld, но иногда могут быть другие игры/коллаборации!",
@@ -41,33 +42,21 @@
   },
   "ideas": [
     {
-      "id": "idea_433973f6502242748947d52b34cfd0ec",
-      "name": "HSK",
-      "amount": 60814.0,
+      "id": "idea_927aa81840f14b0a883cb64b5c218923",
+      "name": "Римворлд с ЖЕНЕВСКОЙ КОНВЕНЦИЕЙ v2.0",
+      "amount": 15982.0,
       "description": "",
       "status": "current",
-      "spinsRemaining": 3,
+      "spinsRemaining": 1,
       "protected": false,
       "image": "",
       "watchUrl": "",
       "modsUrl": ""
     },
     {
-      "id": "idea_7dd6d02510804149b072e8f4e5cd938a",
-      "name": "Регулярные аномалии, туман войны, ивенты без оповещений",
-      "amount": 14892.0,
-      "description": "",
-      "status": "current",
-      "spinsRemaining": 3,
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_7e7ecf29e1b8479c9767a88b49b1bae4",
-      "name": "Выходной v2.0 (2 Крутки)",
-      "amount": 31619.0,
+      "id": "idea_6371bbd0282c4a459500277f4b643af1",
+      "name": "Пони СБОРКА",
+      "amount": 20443.0,
       "description": "",
       "status": "upcoming",
       "spinsRemaining": 2,
@@ -77,33 +66,9 @@
       "modsUrl": ""
     },
     {
-      "id": "idea_8b1120d20ab64276b6ba598caa016439",
-      "name": "Коровки - ДЕВУШКИ Дань в виде молока коровок! (v2.0)",
-      "amount": 24378.0,
-      "description": "",
-      "status": "roulette",
-      "spinsRemaining": 1,
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
       "id": "idea_0fc698a16e4f48d1a5d206bc903dd2bf",
       "name": "Колония ФЕЙ В RIMWORLD",
-      "amount": 22635.0,
-      "description": "",
-      "status": "roulette",
-      "spinsRemaining": 3,
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_d09528f49edb4ee786785becc2ee4dd9",
-      "name": "\"Колония с модом на чужих\"",
-      "amount": 16673.0,
+      "amount": 24855.0,
       "description": "",
       "status": "roulette",
       "spinsRemaining": 1,
@@ -113,9 +78,9 @@
       "modsUrl": ""
     },
     {
-      "id": "idea_927aa81840f14b0a883cb64b5c218923",
-      "name": "Римворлд с ЖЕНЕВСКОЙ КОНВЕНЦИЕЙ v2.0",
-      "amount": 13700.0,
+      "id": "idea_baf94d4b75b344afb03cd06221ce9c43",
+      "name": "Корово-ЖЕНЩИНЫ дань ввиде молока (3 я пытка вернуть идею)",
+      "amount": 16954.0,
       "description": "",
       "status": "roulette",
       "spinsRemaining": 2,
@@ -125,60 +90,48 @@
       "modsUrl": ""
     },
     {
-      "id": "idea_6371bbd0282c4a459500277f4b643af1",
-      "name": "Пони СБОРКА",
-      "amount": 9660.0,
+      "id": "idea_a26d23ce9b4b407b8480979443ad5b29",
+      "name": "Фурри мехлорд, цель: пройти всех мех боссов, добавить каких-то ещё модовых мехов",
+      "amount": 8923.0,
       "description": "",
       "status": "roulette",
+      "spinsRemaining": 2,
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_e83926da6a3e44a1b0d4129730cad848",
+      "name": "Генетическая КОЛОНИЯ (СОЗДАТЬ ГЕНЕТИКОЙ ПЕШКУ сложность в 100 едениц) - Приемлемы моды на гены, старт базовыми колонистами",
+      "amount": 3946.0,
+      "description": "",
+      "status": "roulette",
+      "spinsRemaining": 2,
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_bd1aaf36312e4a49a643e6ad4d539a79",
+      "name": "Водная колония V2 с новым водным модом",
+      "amount": 1819.0,
+      "description": "",
+      "status": "roulette",
+      "spinsRemaining": 2,
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_433973f6502242748947d52b34cfd0ec",
+      "name": "HSK",
+      "amount": 60814.0,
+      "description": "",
+      "status": "finished",
       "spinsRemaining": 3,
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_27c105d790244ec182ae4d4e3bc84f02",
-      "name": "Средневековье с магией охота на КИТАЙСКОГО ДРАКОНА - из мода 帝龙觉醒-虚空",
-      "amount": 5594.0,
-      "description": "",
-      "status": "roulette",
-      "spinsRemaining": 2,
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_d05d0ea432da49a38185992c3e6914e7",
-      "name": "Большой город пешек(50-100) на максимальном размере карты с модом на волны.",
-      "amount": 5040.0,
-      "description": "",
-      "status": "roulette",
-      "spinsRemaining": 2,
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_8cccace2de3f4e5e9b0639a3189acc6c",
-      "name": "Dead Man's SWITCH против насекомых (Китайских)",
-      "amount": 690.0,
-      "description": "",
-      "status": "roulette",
-      "spinsRemaining": 2,
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_6ae2a25a6aa3469193eaf383606cfe9f",
-      "name": "Колония в которой урон могут наносить только псикастеры с ванилла псикаст экспандед (понерфи ледяной луч)",
-      "amount": 494.0,
-      "description": "",
-      "status": "roulette",
-      "spinsRemaining": 1,
       "protected": false,
       "image": "",
       "watchUrl": "",
@@ -205,6 +158,18 @@
       "spinsRemaining": 3,
       "protected": true,
       "image": "images/ideas/765aebbd-f287-4faf-8bb6-65e7ea919912.webp",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_7e7ecf29e1b8479c9767a88b49b1bae4",
+      "name": "Выходной v2.0 (2 Крутки)",
+      "amount": 31619.0,
+      "description": "",
+      "status": "finished",
+      "spinsRemaining": 2,
+      "protected": false,
+      "image": "",
       "watchUrl": "",
       "modsUrl": ""
     },
@@ -253,6 +218,18 @@
       "spinsRemaining": 3,
       "protected": true,
       "image": "images/ideas/aa63db2f-79da-4247-badc-ea21437256f9.webp",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_7dd6d02510804149b072e8f4e5cd938a",
+      "name": "Регулярные аномалии, туман войны, ивенты без оповещений",
+      "amount": 14892.0,
+      "description": "",
+      "status": "finished",
+      "spinsRemaining": 3,
+      "protected": false,
+      "image": "",
       "watchUrl": "",
       "modsUrl": ""
     },
@@ -376,5 +353,111 @@
       "watchUrl": "https://www.youtube.com/watch?v=T-W91V6INHg&t=15971s",
       "modsUrl": ""
     }
-  ]
+  ],
+  "unallocatedDonors": [
+    {
+      "name": "Krosster",
+      "amount": 7812.0,
+      "donationCount": 20
+    },
+    {
+      "name": "AlphaSigma",
+      "amount": 3653.0,
+      "donationCount": 1
+    },
+    {
+      "name": "NGC",
+      "amount": 3393.0,
+      "donationCount": 7
+    },
+    {
+      "name": "2FTA",
+      "amount": 3307.8,
+      "donationCount": 1
+    },
+    {
+      "name": "DeBiAnT",
+      "amount": 1738.0,
+      "donationCount": 3
+    },
+    {
+      "name": "Неизвестный",
+      "amount": 1308.0,
+      "donationCount": 6
+    },
+    {
+      "name": "max0n",
+      "amount": 1078.0,
+      "donationCount": 1
+    },
+    {
+      "name": "Ofskiy",
+      "amount": 945.0,
+      "donationCount": 1
+    },
+    {
+      "name": "tired_sokol",
+      "amount": 921.0,
+      "donationCount": 1
+    },
+    {
+      "name": "юджин",
+      "amount": 764.0,
+      "donationCount": 2
+    },
+    {
+      "name": "Robz1133",
+      "amount": 504.0,
+      "donationCount": 2
+    },
+    {
+      "name": "Динар",
+      "amount": 504.0,
+      "donationCount": 1
+    },
+    {
+      "name": "T0talEclipse",
+      "amount": 496.0,
+      "donationCount": 2
+    },
+    {
+      "name": "Мафийозник",
+      "amount": 402.0,
+      "donationCount": 2
+    },
+    {
+      "name": "Vesti",
+      "amount": 375.0,
+      "donationCount": 1
+    },
+    {
+      "name": "retlove13566",
+      "amount": 252.0,
+      "donationCount": 1
+    },
+    {
+      "name": "Akseleron03",
+      "amount": 238.0,
+      "donationCount": 1
+    },
+    {
+      "name": "martiny",
+      "amount": 142.0,
+      "donationCount": 1
+    },
+    {
+      "name": "Pumanuel",
+      "amount": 100.0,
+      "donationCount": 1
+    },
+    {
+      "name": "martofskii",
+      "amount": 58.0,
+      "donationCount": 1
+    }
+  ],
+  "unallocatedAnonymous": {
+    "amount": 3288.0,
+    "donationCount": 11
+  }
 }

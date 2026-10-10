@@ -968,6 +968,7 @@
       const DEFAULT_CONTENT = {
         version: 1,
         updatedAt: null,
+        unallocatedUpdatedAt: null,
         settings: {
           seasonLabel: "Римафон · сезон 2",
           heroTitle: "Вы выбираете следующую колонию",
@@ -1010,7 +1011,9 @@
           ],
           newGameNote: "Выпадение лота запускает выбор новой игры, но не гарантирует автоматический запуск конкретной игры, указанной в донате."
         },
-        ideas: []
+        ideas: [],
+        unallocatedDonors: [],
+        unallocatedAnonymous: { amount: 0, donationCount: 0 }
       };
 
       let state = structuredClone(DEFAULT_CONTENT);
@@ -1048,6 +1051,7 @@
         return {
           version: 1,
           updatedAt: content.updatedAt || null,
+          unallocatedUpdatedAt: content.unallocatedUpdatedAt || null,
           settings: {
             seasonLabel: String(settings.seasonLabel || DEFAULT_CONTENT.settings.seasonLabel),
             heroTitle: String(settings.heroTitle || DEFAULT_CONTENT.settings.heroTitle),
@@ -1068,6 +1072,17 @@
             newGameIntro: String(rules.newGameIntro || ""),
             newGame: Array.isArray(rules.newGame) ? rules.newGame.map(String) : clone(DEFAULT_CONTENT.rules.newGame),
             newGameNote: String(rules.newGameNote || ""),
+          },
+          unallocatedDonors: Array.isArray(content.unallocatedDonors)
+            ? content.unallocatedDonors.map((donor) => ({
+                name: String(donor.name || ""),
+                amount: Math.max(0, Number(donor.amount) || 0),
+                donationCount: Math.max(0, Number(donor.donationCount) || 0)
+              }))
+            : [],
+          unallocatedAnonymous: {
+            amount: Math.max(0, Number(content.unallocatedAnonymous?.amount) || 0),
+            donationCount: Math.max(0, Number(content.unallocatedAnonymous?.donationCount) || 0)
           },
           ideas: Array.isArray(content.ideas)
             ? content.ideas.map((idea) => ({
