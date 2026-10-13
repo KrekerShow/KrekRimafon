@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-10T10:33:30Z",
-  "unallocatedUpdatedAt": "2026-10-10T10:33:30Z",
+  "updatedAt": "2026-10-13T13:55:04Z",
+  "unallocatedUpdatedAt": "2026-10-13T13:55:04Z",
   "settings": {
     "donationMin": 100,
     "heroDescription": "Предлагайте идеи для прохождения RimWorld. Они попадают в общую рулетку, а выбранные варианты становятся новыми форматами стримов. Каждый раз когда выполняется ЦЕЛЬ ПО ДОНАТАМ добавляем ещё один ежедневный стрим. Римафон это формат в котором стримы идут каждый день, приоритет Rimworld, но иногда могут быть другие игры/коллаборации!",
@@ -54,6 +54,18 @@
       "modsUrl": ""
     },
     {
+      "id": "idea_0fc698a16e4f48d1a5d206bc903dd2bf",
+      "name": "Колония ФЕЙ В RIMWORLD",
+      "amount": 30526.0,
+      "description": "",
+      "status": "upcoming",
+      "spinsRemaining": 0,
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
       "id": "idea_6371bbd0282c4a459500277f4b643af1",
       "name": "Пони СБОРКА",
       "amount": 20443.0,
@@ -66,12 +78,12 @@
       "modsUrl": ""
     },
     {
-      "id": "idea_0fc698a16e4f48d1a5d206bc903dd2bf",
-      "name": "Колония ФЕЙ В RIMWORLD",
-      "amount": 24855.0,
+      "id": "idea_15cb406aac9f42e19e4991324789fffa",
+      "name": "ВОЛНЫ С CE (Жёсткий уклон в ВОЕННЫЕ МОДЫ) (БЕЗ НАГРАД)",
+      "amount": 50076.0,
       "description": "",
       "status": "roulette",
-      "spinsRemaining": 1,
+      "spinsRemaining": 2,
       "protected": false,
       "image": "",
       "watchUrl": "",
@@ -80,10 +92,10 @@
     {
       "id": "idea_baf94d4b75b344afb03cd06221ce9c43",
       "name": "Корово-ЖЕНЩИНЫ дань ввиде молока (3 я пытка вернуть идею)",
-      "amount": 16954.0,
+      "amount": 17202.0,
       "description": "",
       "status": "roulette",
-      "spinsRemaining": 2,
+      "spinsRemaining": 1,
       "protected": false,
       "image": "",
       "watchUrl": "",
@@ -95,7 +107,7 @@
       "amount": 8923.0,
       "description": "",
       "status": "roulette",
-      "spinsRemaining": 2,
+      "spinsRemaining": 1,
       "protected": false,
       "image": "",
       "watchUrl": "",
@@ -104,10 +116,10 @@
     {
       "id": "idea_e83926da6a3e44a1b0d4129730cad848",
       "name": "Генетическая КОЛОНИЯ (СОЗДАТЬ ГЕНЕТИКОЙ ПЕШКУ сложность в 100 едениц) - Приемлемы моды на гены, старт базовыми колонистами",
-      "amount": 3946.0,
+      "amount": 4998.0,
       "description": "",
       "status": "roulette",
-      "spinsRemaining": 2,
+      "spinsRemaining": 1,
       "protected": false,
       "image": "",
       "watchUrl": "",
@@ -116,10 +128,22 @@
     {
       "id": "idea_bd1aaf36312e4a49a643e6ad4d539a79",
       "name": "Водная колония V2 с новым водным модом",
-      "amount": 1819.0,
+      "amount": 3524.0,
       "description": "",
       "status": "roulette",
-      "spinsRemaining": 2,
+      "spinsRemaining": 1,
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_7941aa5ef83b4aa790e4b7c42809e6e5",
+      "name": "Cборка с чужиками x2",
+      "amount": 3271.0,
+      "description": "",
+      "status": "roulette",
+      "spinsRemaining": 3,
       "protected": false,
       "image": "",
       "watchUrl": "",
@@ -362,13 +386,13 @@
     },
     {
       "name": "AlphaSigma",
-      "amount": 3653.0,
-      "donationCount": 1
+      "amount": 6213.0,
+      "donationCount": 2
     },
     {
-      "name": "NGC",
-      "amount": 3393.0,
-      "donationCount": 7
+      "name": "Akseleron03",
+      "amount": 4264.0,
+      "donationCount": 12
     },
     {
       "name": "2FTA",
@@ -376,9 +400,24 @@
       "donationCount": 1
     },
     {
+      "name": "Snow_storm",
+      "amount": 2622.0,
+      "donationCount": 5
+    },
+    {
+      "name": "ALEWAigrok",
+      "amount": 2402.0,
+      "donationCount": 3
+    },
+    {
       "name": "DeBiAnT",
       "amount": 1738.0,
       "donationCount": 3
+    },
+    {
+      "name": "NGC",
+      "amount": 1420.0,
+      "donationCount": 4
     },
     {
       "name": "Неизвестный",
@@ -391,9 +430,19 @@
       "donationCount": 1
     },
     {
+      "name": "filthhs",
+      "amount": 1024.0,
+      "donationCount": 4
+    },
+    {
       "name": "Ofskiy",
       "amount": 945.0,
       "donationCount": 1
+    },
+    {
+      "name": "Кросстер",
+      "amount": 924.0,
+      "donationCount": 2
     },
     {
       "name": "tired_sokol",
@@ -406,6 +455,11 @@
       "donationCount": 2
     },
     {
+      "name": "jojopkins(NEGROTRON)",
+      "amount": 682.0,
+      "donationCount": 6
+    },
+    {
       "name": "Robz1133",
       "amount": 504.0,
       "donationCount": 2
@@ -413,6 +467,11 @@
     {
       "name": "Динар",
       "amount": 504.0,
+      "donationCount": 1
+    },
+    {
+      "name": "Loky",
+      "amount": 500.0,
       "donationCount": 1
     },
     {
@@ -436,14 +495,9 @@
       "donationCount": 1
     },
     {
-      "name": "Akseleron03",
-      "amount": 238.0,
-      "donationCount": 1
-    },
-    {
-      "name": "martiny",
-      "amount": 142.0,
-      "donationCount": 1
+      "name": "Уродина Красивая",
+      "amount": 232.0,
+      "donationCount": 2
     },
     {
       "name": "Pumanuel",
@@ -451,9 +505,19 @@
       "donationCount": 1
     },
     {
+      "name": "жизнь моя жестянка",
+      "amount": 80.0,
+      "donationCount": 1
+    },
+    {
       "name": "martofskii",
       "amount": 58.0,
       "donationCount": 1
+    },
+    {
+      "name": "Xixi",
+      "amount": 40.0,
+      "donationCount": 2
     }
   ],
   "unallocatedAnonymous": {
