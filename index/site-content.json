@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-16T13:57:42Z",
-  "unallocatedUpdatedAt": "2026-10-16T13:57:42Z",
+  "updatedAt": "2026-10-19T13:52:26Z",
+  "unallocatedUpdatedAt": "2026-10-19T13:52:26Z",
   "settings": {
     "donationMin": 100,
     "heroDescription": "Предлагайте идеи для прохождения RimWorld. Они попадают в общую рулетку, а выбранные варианты становятся новыми форматами стримов. Каждый раз когда выполняется ЦЕЛЬ ПО ДОНАТАМ добавляем ещё один ежедневный стрим. Римафон это формат в котором стримы идут каждый день, приоритет Rimworld, но иногда могут быть другие игры/коллаборации!",
@@ -68,7 +68,7 @@
     {
       "id": "idea_7941aa5ef83b4aa790e4b7c42809e6e5",
       "name": "Cборка с чужиками x2",
-      "amount": 34564.0,
+      "amount": 48942.0,
       "description": "",
       "status": "roulette",
       "spinsRemaining": 2,
@@ -78,21 +78,9 @@
       "modsUrl": ""
     },
     {
-      "id": "idea_951d6ab8263d497baab88d3d9ac16704",
-      "name": "Фембой колония",
-      "amount": 2131.0,
-      "description": "",
-      "status": "roulette",
-      "spinsRemaining": 2,
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
-      "id": "idea_0b0322d7ac8240fa8651f73932c6170d",
-      "name": "Город пешек 100 пешек с волнами (Макс размер карты)",
-      "amount": 1250.0,
+      "id": "idea_aa16bacb158d4c988d606b4e13c8395d",
+      "name": "Римхамер против фуррей",
+      "amount": 23945.0,
       "description": "",
       "status": "roulette",
       "spinsRemaining": 3,
@@ -102,9 +90,45 @@
       "modsUrl": ""
     },
     {
-      "id": "idea_aa16bacb158d4c988d606b4e13c8395d",
-      "name": "Римхамер против фуррей",
-      "amount": 251.85,
+      "id": "idea_d5557979aa934a01bb7c22a13ed93a22",
+      "name": "Колония СКАЙНЕТА",
+      "amount": 17236.09,
+      "description": "",
+      "status": "roulette",
+      "spinsRemaining": 3,
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_951d6ab8263d497baab88d3d9ac16704",
+      "name": "Фембой колония",
+      "amount": 9952.0,
+      "description": "",
+      "status": "roulette",
+      "spinsRemaining": 2,
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_054a863302074f58af25ef8456f6fce4",
+      "name": "Сборка ВЛАСТЕЛИН КОЛЕЦ",
+      "amount": 8060.0,
+      "description": "",
+      "status": "roulette",
+      "spinsRemaining": 3,
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_0b0322d7ac8240fa8651f73932c6170d",
+      "name": "Город пешек 100 пешек с волнами (Макс размер карты)",
+      "amount": 5099.0,
       "description": "",
       "status": "roulette",
       "spinsRemaining": 3,
@@ -369,13 +393,13 @@
   "unallocatedDonors": [
     {
       "name": "Неизвестный",
-      "amount": 19664.62,
-      "donationCount": 12
+      "amount": 24001.62,
+      "donationCount": 19
     },
     {
-      "name": "Delliora",
-      "amount": 7084.0,
-      "donationCount": 22
+      "name": "Pallam",
+      "amount": 8531.0,
+      "donationCount": 7
     },
     {
       "name": "AlphaSigma",
@@ -383,19 +407,19 @@
       "donationCount": 2
     },
     {
-      "name": "Isidmiv",
-      "amount": 4873.0,
-      "donationCount": 4
+      "name": "Pumanuel",
+      "amount": 5121.0,
+      "donationCount": 6
+    },
+    {
+      "name": "tired_sokol",
+      "amount": 4750.0,
+      "donationCount": 9
     },
     {
       "name": "2FTA",
       "amount": 3307.8,
       "donationCount": 1
-    },
-    {
-      "name": "Snow_storm",
-      "amount": 2886.0,
-      "donationCount": 9
     },
     {
       "name": "InfestedRoach322",
@@ -408,9 +432,9 @@
       "donationCount": 3
     },
     {
-      "name": "tired_sokol",
-      "amount": 1424.0,
-      "donationCount": 2
+      "name": "Bugagami",
+      "amount": 1500.0,
+      "donationCount": 1
     },
     {
       "name": "Zerc",
@@ -483,6 +507,11 @@
       "donationCount": 1
     },
     {
+      "name": "Makot",
+      "amount": 500.0,
+      "donationCount": 1
+    },
+    {
       "name": "Мафийозник",
       "amount": 402.0,
       "donationCount": 2
@@ -513,17 +542,22 @@
       "donationCount": 2
     },
     {
+      "name": "cheburalll",
+      "amount": 158.0,
+      "donationCount": 2
+    },
+    {
+      "name": "Ярослав",
+      "amount": 150.0,
+      "donationCount": 2
+    },
+    {
       "name": "Sergo-z2z",
       "amount": 116.0,
       "donationCount": 2
     },
     {
       "name": "Lip",
-      "amount": 100.0,
-      "donationCount": 1
-    },
-    {
-      "name": "Pumanuel",
       "amount": 100.0,
       "donationCount": 1
     },
@@ -538,6 +572,16 @@
       "donationCount": 1
     },
     {
+      "name": "Oleg Veliky",
+      "amount": 83.76,
+      "donationCount": 1
+    },
+    {
+      "name": "Мигрант",
+      "amount": 67.0,
+      "donationCount": 1
+    },
+    {
       "name": "martofskii",
       "amount": 58.0,
       "donationCount": 1
@@ -549,7 +593,7 @@
     }
   ],
   "unallocatedAnonymous": {
-    "amount": 4942.0,
-    "donationCount": 14
+    "amount": 5356.0,
+    "donationCount": 15
   }
 }
