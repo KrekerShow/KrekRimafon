@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-19T13:52:26Z",
-  "unallocatedUpdatedAt": "2026-10-19T13:52:26Z",
+  "updatedAt": "2026-10-21T13:40:42Z",
+  "unallocatedUpdatedAt": "2026-10-21T13:40:42Z",
   "settings": {
     "donationMin": 100,
     "heroDescription": "Предлагайте идеи для прохождения RimWorld. Они попадают в общую рулетку, а выбранные варианты становятся новыми форматами стримов. Каждый раз когда выполняется ЦЕЛЬ ПО ДОНАТАМ добавляем ещё один ежедневный стрим. Римафон это формат в котором стримы идут каждый день, приоритет Rimworld, но иногда могут быть другие игры/коллаборации!",
@@ -42,23 +42,11 @@
   },
   "ideas": [
     {
-      "id": "idea_0fc698a16e4f48d1a5d206bc903dd2bf",
-      "name": "Колония ФЕЙ В RIMWORLD",
-      "amount": 30526.0,
-      "description": "",
-      "status": "current",
-      "spinsRemaining": 0,
-      "protected": false,
-      "image": "",
-      "watchUrl": "",
-      "modsUrl": ""
-    },
-    {
       "id": "idea_15cb406aac9f42e19e4991324789fffa",
       "name": "ВОЛНЫ С CE (Жёсткий уклон в ВОЕННЫЕ МОДЫ) (БЕЗ НАГРАД)",
       "amount": 64829.89,
       "description": "",
-      "status": "upcoming",
+      "status": "current",
       "spinsRemaining": 2,
       "protected": false,
       "image": "",
@@ -68,7 +56,7 @@
     {
       "id": "idea_7941aa5ef83b4aa790e4b7c42809e6e5",
       "name": "Cборка с чужиками x2",
-      "amount": 48942.0,
+      "amount": 50114.0,
       "description": "",
       "status": "roulette",
       "spinsRemaining": 2,
@@ -138,6 +126,18 @@
       "modsUrl": ""
     },
     {
+      "id": "idea_2abe0d2ed1794783ac5c3fc58e0d902d",
+      "name": "Прохождение соло пешкой идеальным человеком + полное владение телом. Обязательно убить бога аномалий, после чего уйти на любую концовку. Новых пешек бррать нельзя ни при каких условиях.»",
+      "amount": 200.0,
+      "description": "",
+      "status": "roulette",
+      "spinsRemaining": 3,
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
       "id": "idea_433973f6502242748947d52b34cfd0ec",
       "name": "HSK",
       "amount": 60814.0,
@@ -180,6 +180,18 @@
       "description": "",
       "status": "finished",
       "spinsRemaining": 2,
+      "protected": false,
+      "image": "",
+      "watchUrl": "",
+      "modsUrl": ""
+    },
+    {
+      "id": "idea_0fc698a16e4f48d1a5d206bc903dd2bf",
+      "name": "Колония ФЕЙ В RIMWORLD",
+      "amount": 30526.0,
+      "description": "",
+      "status": "finished",
+      "spinsRemaining": 0,
       "protected": false,
       "image": "",
       "watchUrl": "",
@@ -393,8 +405,8 @@
   "unallocatedDonors": [
     {
       "name": "Неизвестный",
-      "amount": 24001.62,
-      "donationCount": 19
+      "amount": 24201.62,
+      "donationCount": 20
     },
     {
       "name": "Pallam",
@@ -425,6 +437,11 @@
       "name": "InfestedRoach322",
       "amount": 2047.0,
       "donationCount": 6
+    },
+    {
+      "name": "Замир Безгоев",
+      "amount": 2045.0,
+      "donationCount": 7
     },
     {
       "name": "DeBiAnT",
@@ -532,8 +549,18 @@
       "donationCount": 1
     },
     {
+      "name": "Моки (M02K1)",
+      "amount": 248.0,
+      "donationCount": 1
+    },
+    {
       "name": "Уродина Красивая",
       "amount": 232.0,
+      "donationCount": 2
+    },
+    {
+      "name": "Круз200",
+      "amount": 200.0,
       "donationCount": 2
     },
     {
@@ -577,6 +604,11 @@
       "donationCount": 1
     },
     {
+      "name": "No way",
+      "amount": 69.0,
+      "donationCount": 1
+    },
+    {
       "name": "Мигрант",
       "amount": 67.0,
       "donationCount": 1
@@ -590,6 +622,11 @@
       "name": "Xixi",
       "amount": 40.0,
       "donationCount": 2
+    },
+    {
+      "name": "Ref",
+      "amount": 10.0,
+      "donationCount": 1
     }
   ],
   "unallocatedAnonymous": {
